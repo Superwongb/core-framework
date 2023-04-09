@@ -1,6 +1,6 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Framework;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Framework;
 
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\DependencyInjection\ContainerInterface;

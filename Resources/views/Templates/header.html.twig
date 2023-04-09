@@ -297,7 +297,7 @@
     </div>
 
     <!-- Search Box -->
-    {{ uvdesk_extensibles.getRegisteredComponent('Webkul\\UVDesk\\CoreFrameworkBundle\\Dashboard\\SearchTemplate').render() | raw }}
+    {{ uvdesk_extensibles.getRegisteredComponent('Harryn\\Jacobn\\CoreFrameworkBundle\\Dashboard\\SearchTemplate').render() | raw }}
 
     <div class="uv-actions">
         <!-- Google Translation -->
@@ -368,7 +368,7 @@
                 <%= undeliveredMessages %>
             </span>
         </li>
-        <span class="timeago">{{ 'Learn more about %deliveryStatus%.'|trans({'%deliveryStatus%': '<a href="https://support.uvdesk.com/en/blog/uvdesk-ticket-delivery-status" target="_blank">' ~ 'ticket delivery status'|trans ~ '</a>'})|raw }}</span>
+        <span class="timeago">{{ 'Learn more about %deliveryStatus%.'|trans({'%deliveryStatus%': '<a href="https://support.jacobn.com/en/blog/jacobn-ticket-delivery-status" target="_blank">' ~ 'ticket delivery status'|trans ~ '</a>'})|raw }}</span>
     <% } %>
 </script>
 

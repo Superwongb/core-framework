@@ -1,16 +1,16 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Workflow\Events\Customer;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Workflow\Events\Customer;
 
-use Webkul\UVDesk\AutomationBundle\Workflow\FunctionalGroup;
+use Harryn\Jacobn\AutomationBundle\Workflow\FunctionalGroup;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Webkul\UVDesk\AutomationBundle\Workflow\Event as WorkflowEvent;
+use Harryn\Jacobn\AutomationBundle\Workflow\Event as WorkflowEvent;
 
 class Create extends WorkflowEvent
 {
     public static function getId()
     {
-        return 'uvdesk.customer.created';
+        return 'jacobn.customer.created';
     }
 
     public static function getDescription()

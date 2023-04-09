@@ -1,18 +1,18 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\PreparedResponse\Actions\Ticket;
+namespace Harryn\Jacobn\CoreFrameworkBundle\PreparedResponse\Actions\Ticket;
 
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Ticket;
-use Webkul\UVDesk\AutomationBundle\PreparedResponse\FunctionalGroup;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Ticket;
+use Harryn\Jacobn\AutomationBundle\PreparedResponse\FunctionalGroup;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Webkul\UVDesk\AutomationBundle\PreparedResponse\Action as PreparedResponseAction;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\TicketStatus;
+use Harryn\Jacobn\AutomationBundle\PreparedResponse\Action as PreparedResponseAction;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\TicketStatus;
 
 class UpdateStatus extends PreparedResponseAction
 {
     public static function getId()
     {
-        return 'uvdesk.ticket.update_status';
+        return 'jacobn.ticket.update_status';
     }
 
     public static function getDescription()

@@ -174,7 +174,7 @@
             height: 18px;
             display: inline-block;
             vertical-align: middle;
-            background-image: url("{{ asset('bundles/uvdeskcoreframework/images/uvdesk-sprite.svg') }}");
+            background-image: url("{{ asset('bundles/uvdeskcoreframework/images/jacobn-sprite.svg') }}");
             background-position: 0px -396px;
             transition: transform .15s;
             transform: scale(1);
@@ -757,7 +757,7 @@
                     </div>
 
                     <div class="uv-ticket-action-bar-rt">
-                        {{ uvdesk_extensibles.getRegisteredComponent("Webkul\\UVDesk\\CoreFrameworkBundle\\Tickets\\WidgetCollection").embedSideFilterIcons()|raw }}
+                        {{ uvdesk_extensibles.getRegisteredComponent("Harryn\\Jacobn\\CoreFrameworkBundle\\Tickets\\WidgetCollection").embedSideFilterIcons()|raw }}
                     </div>
                 </div>
 
@@ -1159,7 +1159,7 @@
             <!-- Bottom Action Block -->
             <div class="uv-ticket-fixed-region">
                 <div class="uv-ticket-fixed-region-lt">
-                    {{ uvdesk_extensibles.getRegisteredComponent("Webkul\\UVDesk\\CoreFrameworkBundle\\Tickets\\QuickActionButtonCollection").injectTemplates()|raw }}
+                    {{ uvdesk_extensibles.getRegisteredComponent("Harryn\\Jacobn\\CoreFrameworkBundle\\Tickets\\QuickActionButtonCollection").injectTemplates()|raw }}
 
                     {# <!-- Saved Replied-->
                     <div class="uv-dropdown saved-reply">
@@ -1249,7 +1249,7 @@
         </div>
     {% endif %}
 
-    {{ uvdesk_extensibles.getRegisteredComponent("Webkul\\UVDesk\\CoreFrameworkBundle\\Tickets\\WidgetCollection").embedSideFilterContent()|raw }}
+    {{ uvdesk_extensibles.getRegisteredComponent("Harryn\\Jacobn\\CoreFrameworkBundle\\Tickets\\WidgetCollection").embedSideFilterContent()|raw }}
 {% endblock %}
 
 {% block footer %}
@@ -1287,7 +1287,7 @@
         <div class="uv-ticket-strip">
             <span>
                 <% if(typeof(mailStatus) != 'undefined' && mailStatus) { %>
-                    <a href="https://support.uvdesk.com/en/blog/uvdesk-ticket-delivery-status" target="_blank">
+                    <a href="https://support.jacobn.com/en/blog/jacobn-ticket-delivery-status" target="_blank">
                         <span class="uv-mail-status uv-mail-<%- mailStatus.split(',')[0] %>" <% if(mailStatus !== 'pending') { %>data-toggle="tooltip" data-placement="right" title="{{ 'Mail status:'|trans }} <%- mailStatus.split(',')[0] %> <% if(mailStatus.split(',').length > 1) { print('Reason:' + mailStatus.split(',')[1] ); } %> "<% } %> ></span>
             </a>
             <% } %>
@@ -1467,7 +1467,7 @@
     </script>
 
     <script type="text/javascript">
-        uvdesk = {
+        jacobn = {
             ticket: {}
         };
 
@@ -2878,7 +2878,7 @@
                 model: ticketModel
             });
 
-            uvdesk.ticket.model = ticketModel;
+            jacobn.ticket.model = ticketModel;
 
             threadCollection = new ThreadCollection();
             var threadList = new ThreadList();

@@ -1,6 +1,6 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\DependencyInjection;
+namespace Harryn\Jacobn\CoreFrameworkBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -15,7 +15,14 @@ class BundleConfiguration implements ConfigurationInterface
                 ->node('site_url', 'scalar')->defaultValue('127.0.0.1')->end()
                 ->node('upload_manager', 'array')
                     ->children()
-                        ->node('id', 'scalar')->defaultValue('uvdesk.core.fs.upload.manager')->end()
+                        ->node('id', 'scalar')->defaultValue('jacobn.core.fs.upload.manager')->end()
+                    ->end()
+                ->end()
+                ->node('support_email', 'array')
+                    ->children()
+                        ->node('id', 'scalar')->defaultValue('support@localhost')->end()
+                        ->node('name', 'scalar')->defaultValue('Jacobn Community')->end()
+                        ->node('mailer_id', 'scalar')->defaultValue('default')->end()
                     ->end()
                 ->end()
                 ->node('default', 'array')

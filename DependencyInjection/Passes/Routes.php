@@ -1,11 +1,11 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\DependencyInjection\Passes;
+namespace Harryn\Jacobn\CoreFrameworkBundle\DependencyInjection\Passes;
 
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Webkul\UVDesk\CoreFrameworkBundle\Definition\RouteLoader;
-use Webkul\UVDesk\CoreFrameworkBundle\Definition\RoutingResourceInterface;
+use Harryn\Jacobn\CoreFrameworkBundle\Definition\RouteLoader;
+use Harryn\Jacobn\CoreFrameworkBundle\Definition\RoutingResourceInterface;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 
 class Routes implements CompilerPassInterface

@@ -1,8 +1,8 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Repository;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Repository;
 
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\AgentActivity;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\AgentActivity;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 

@@ -1,16 +1,16 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\PreparedResponse\Actions\Agent;
+namespace Harryn\Jacobn\CoreFrameworkBundle\PreparedResponse\Actions\Agent;
 
-use Webkul\UVDesk\AutomationBundle\PreparedResponse\FunctionalGroup;
+use Harryn\Jacobn\AutomationBundle\PreparedResponse\FunctionalGroup;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Webkul\UVDesk\AutomationBundle\PreparedResponse\Action as PreparedResponseAction;
+use Harryn\Jacobn\AutomationBundle\PreparedResponse\Action as PreparedResponseAction;
 
 class TransferTickets extends PreparedResponseAction
 {
     public static function getId()
     {
-        return 'uvdesk.agent.transfer_tickets';
+        return 'jacobn.agent.transfer_tickets';
     }
 
     public static function getDescription()

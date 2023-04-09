@@ -1,12 +1,12 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\FileSystem;
+namespace Harryn\Jacobn\CoreFrameworkBundle\FileSystem;
 
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Attachment;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Attachment;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\FileSystem\UploadManagers\Localhost as DefaultFileUploadManager;
+use Harryn\Jacobn\CoreFrameworkBundle\FileSystem\UploadManagers\Localhost as DefaultFileUploadManager;
 
 class FileSystem
 {
@@ -23,7 +23,7 @@ class FileSystem
 
         $this->projectRootDirectory = $container->get('kernel')->getProjectDir();
         $this->documentRootDirectory = str_replace('//', '/', $this->projectRootDirectory . '/public');
-        $this->fileUploadManagerServiceId = $container->getParameter('uvdesk.upload_manager.id') ?: DefaultFileUploadManager::class;
+        $this->fileUploadManagerServiceId = $container->getParameter('jacobn.upload_manager.id') ?: DefaultFileUploadManager::class;
     }
 
     public function getUploadManager()

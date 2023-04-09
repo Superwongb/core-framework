@@ -1,11 +1,11 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Fixtures;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Fixtures;
 
 use Doctrine\Persistence\ObjectManager;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity as CoreEntities;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity as CoreEntities;
 use Doctrine\Bundle\FixturesBundle\Fixture as DoctrineFixture;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\TicketType;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\TicketType;
 
 class TicketTypes extends DoctrineFixture
 {

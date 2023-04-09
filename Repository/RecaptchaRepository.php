@@ -1,8 +1,8 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Repository;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Repository;
 
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Recaptcha;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Recaptcha;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 

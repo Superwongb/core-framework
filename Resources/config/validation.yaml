@@ -1,4 +1,4 @@
-Webkul\UVDesk\CoreFrameworkBundle\DataProxies\CreateTicketDataClass:
+Harryn\Jacobn\CoreFrameworkBundle\DataProxies\CreateTicketDataClass:
     group_sequence:
         - CreateTicketDataClass
     properties:
@@ -22,12 +22,12 @@ Webkul\UVDesk\CoreFrameworkBundle\DataProxies\CreateTicketDataClass:
                 message: 'This field is mandatory'
                 groups: [CreateTicket, CustomerCreateTicket]
 
-# Webkul\UVDesk\CoreFrameworkBundle\Entity\Mailbox:
+# Harryn\Jacobn\CoreFrameworkBundle\Entity\Mailbox:
 #     group_sequence:
 #         - Mailbox
 #     constraints:
 #         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: {fields: [email], groups:[Mailbox]}
-#         - Webkul\UserBundle\Validator\Constraints\UVdeskEmail: {groups:[Mailbox]}
+#         - Harryn\UserBundle\Validator\Constraints\UVdeskEmail: {groups:[Mailbox]}
 #     properties:
 #         name:
 #             - NotBlank: { groups: [Mailbox]  }
@@ -44,12 +44,12 @@ Webkul\UVDesk\CoreFrameworkBundle\DataProxies\CreateTicketDataClass:
 #                 groups: [Mailbox]
 
 
-# Webkul\UVDesk\CoreFrameworkBundle\Entity\TicketType:
+# Harryn\Jacobn\CoreFrameworkBundle\Entity\TicketType:
 #     group_sequence:
 #         - Type
 #         - uniqueType
 #     constraints:
-#         - Webkul\CoreFrameworkBundle\Validator\Constraints\UniqueType: {groups:[uniqueType]}
+#         - Harryn\CoreFrameworkBundle\Validator\Constraints\UniqueType: {groups:[uniqueType]}
 #     properties:
 #         name:
 #             - NotBlank: { groups: [Type]  }

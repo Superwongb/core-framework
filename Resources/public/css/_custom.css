@@ -345,7 +345,7 @@ br[data-mce-bogus="1"] {
     height: 18px;
     display: inline-block;
     vertical-align: middle;
-    background-image: url("../../webkuldefault/images/uvdesk-social-sprite.svg");
+    background-image: url("../../webkuldefault/images/jacobn-social-sprite.svg");
     margin-right: 5px;
     background-position: 0px -19px;
 }
@@ -354,7 +354,7 @@ br[data-mce-bogus="1"] {
     height: 18px;
     display: inline-block;
     vertical-align: middle;
-    background-image: url("../../webkuldefault/images/uvdesk-social-sprite.svg");
+    background-image: url("../../webkuldefault/images/jacobn-social-sprite.svg");
     margin-right: 5px;
     background-position: 0px 0px;
 }
@@ -583,7 +583,7 @@ body {
   height: 26px;
   display: inline-block;
   vertical-align: middle;
-  background-image: url("../images/uvdesk-sprite.svg");
+  background-image: url("../images/jacobn-sprite.svg");
   background-position: -42px -397px;
   cursor: pointer;
   position: relative;

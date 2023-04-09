@@ -1,6 +1,6 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Templates\Email;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Templates\Email;
 
 interface UVDeskEmailTemplateInterface
 {

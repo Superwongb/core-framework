@@ -1,14 +1,14 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Repository;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Repository;
 
 use Doctrine\ORM\Query;
 use Doctrine\Common\Collections\Criteria;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\User;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\UserInstance;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Ticket;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportGroup;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportTeam;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\User;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\UserInstance;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Ticket;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportGroup;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportTeam;
 use Symfony\Component\HttpFoundation\ParameterBag;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -65,7 +65,7 @@ class UserRepository extends \Doctrine\ORM\EntityRepository
         $paginationAttributes = $pagination->getPaginationData();
         
         $paginationParams['page'] = 'replacePage';
-        $paginationAttributes['url'] = '#' . $container->get('uvdesk.service')->buildPaginationQuery($paginationParams);
+        $paginationAttributes['url'] = '#' . $container->get('jacobn.service')->buildPaginationQuery($paginationParams);
         
         return [
             'pagination_data' => $paginationAttributes,
@@ -148,7 +148,7 @@ class UserRepository extends \Doctrine\ORM\EntityRepository
         $paginationData = $results->getPaginationData();
         $queryParameters = $results->getParams();
         $queryParameters['page'] = "replacePage";
-        $paginationData['url'] = '#'.$container->get('uvdesk.service')->buildPaginationQuery($queryParameters);
+        $paginationData['url'] = '#'.$container->get('jacobn.service')->buildPaginationQuery($queryParameters);
 
         $this->container = $container;
         $data = array();

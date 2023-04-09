@@ -1,16 +1,15 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle;
+namespace Harryn\Jacobn\CoreFrameworkBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Webkul\UVDesk\CoreFrameworkBundle\DependencyInjection\Passes;
-use Webkul\UVDesk\CoreFrameworkBundle\DependencyInjection\CoreFramework;
-use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
+use Harryn\Jacobn\CoreFrameworkBundle\DependencyInjection\Passes;
+use Harryn\Jacobn\CoreFrameworkBundle\DependencyInjection\CoreFramework;
 
 class UVDeskCoreFrameworkBundle extends Bundle
 {
-    public function getContainerExtension(): ?ExtensionInterface
+    public function getContainerExtension()
     {
         return new CoreFramework();
     }

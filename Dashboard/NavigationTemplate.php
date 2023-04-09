@@ -1,13 +1,13 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Dashboard;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Dashboard;
 
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\UserService;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\UserService;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Dashboard\Segments\NavigationInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Framework\ExtendableComponentInterface;
+use Harryn\Jacobn\CoreFrameworkBundle\Dashboard\Segments\NavigationInterface;
+use Harryn\Jacobn\CoreFrameworkBundle\Framework\ExtendableComponentInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class NavigationTemplate implements ExtendableComponentInterface

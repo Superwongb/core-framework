@@ -1,29 +1,29 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\DependencyInjection;
+namespace Harryn\Jacobn\CoreFrameworkBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
-use Webkul\UVDesk\CoreFrameworkBundle\Definition\RouterInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Definition\RoutingResourceInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Framework\ExtendableComponentInterface;
+use Harryn\Jacobn\CoreFrameworkBundle\Definition\RouterInterface;
+use Harryn\Jacobn\CoreFrameworkBundle\Definition\RoutingResourceInterface;
+use Harryn\Jacobn\CoreFrameworkBundle\Framework\ExtendableComponentInterface;
 
-use Webkul\UVDesk\CoreFrameworkBundle\Tickets\WidgetInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Tickets\QuickActionButtonInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Dashboard\Segments\SearchItemInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Dashboard\Segments\NavigationInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Dashboard\Segments\HomepageSectionInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Dashboard\Segments\HomepageSectionItemInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Dashboard\Segments\PanelSidebarInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Dashboard\Segments\PanelSidebarItemInterface;
+use Harryn\Jacobn\CoreFrameworkBundle\Tickets\WidgetInterface;
+use Harryn\Jacobn\CoreFrameworkBundle\Tickets\QuickActionButtonInterface;
+use Harryn\Jacobn\CoreFrameworkBundle\Dashboard\Segments\SearchItemInterface;
+use Harryn\Jacobn\CoreFrameworkBundle\Dashboard\Segments\NavigationInterface;
+use Harryn\Jacobn\CoreFrameworkBundle\Dashboard\Segments\HomepageSectionInterface;
+use Harryn\Jacobn\CoreFrameworkBundle\Dashboard\Segments\HomepageSectionItemInterface;
+use Harryn\Jacobn\CoreFrameworkBundle\Dashboard\Segments\PanelSidebarInterface;
+use Harryn\Jacobn\CoreFrameworkBundle\Dashboard\Segments\PanelSidebarItemInterface;
 
 class CoreFramework extends Extension
 {
     public function getAlias()
     {
-        return 'uvdesk';
+        return 'jacobn';
     }
 
     public function getConfiguration(array $configs, ContainerBuilder $container)
@@ -45,38 +45,35 @@ class CoreFramework extends Extension
 
         // Load bundle configurations
         $configuration = $this->getConfiguration($configs, $container);
-
         foreach ($this->processConfiguration($configuration, $configs) as $param => $value) {
             switch ($param) {
+                case 'support_email':
                 case 'upload_manager':
                     foreach ($value as $field => $fieldValue) {
-                        $container->setParameter("uvdesk.$param.$field", $fieldValue);
+                        $container->setParameter("jacobn.$param.$field", $fieldValue);
                     }
-
                     break;
                 case 'default':
                     foreach ($value as $defaultItem => $defaultItemValue) {
                         switch ($defaultItem) {
                             case 'templates':
                                 foreach ($defaultItemValue as $template => $templateValue) {
-                                    $container->setParameter("uvdesk.default.templates.$template", $templateValue);
+                                    $container->setParameter("jacobn.default.templates.$template", $templateValue);
                                 }
                                 break;
                             case 'ticket':
                                 foreach ($defaultItemValue as $option => $optionValue) {
-                                    $container->setParameter("uvdesk.default.ticket.$option", $optionValue);
+                                    $container->setParameter("jacobn.default.ticket.$option", $optionValue);
                                 }
                                 break;
                             default:
-                                $container->setParameter("uvdesk.default.$defaultItem", $defaultItemValue);
+                                $container->setParameter("jacobn.default.$defaultItem", $defaultItemValue);
                                 break;
                         }
                     }
-
                     break;
                 default:
-                    $container->setParameter("uvdesk.$param", $value);
-                    
+                    $container->setParameter("jacobn.$param", $value);
                     break;
             }
         }

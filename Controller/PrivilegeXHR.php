@@ -1,14 +1,14 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Controller;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Controller;
 
-use Webkul\UVDesk\CoreFrameworkBundle\Entity;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportPrivilege;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportPrivilege;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\UserService;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\UserService;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 

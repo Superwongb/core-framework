@@ -1,16 +1,16 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Controller;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Controller;
 
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\User;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\User;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\UserService;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\UserService;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportTeam;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportTeam;
 
 class TeamXHR extends AbstractController
 {

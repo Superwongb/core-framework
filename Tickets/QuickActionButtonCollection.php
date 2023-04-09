@@ -1,11 +1,11 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Tickets;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Tickets;
 
 use Twig\Environment as TwigEnvironment;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\UserService;
-use Webkul\UVDesk\CoreFrameworkBundle\Dashboard\DashboardTemplate;
-use Webkul\UVDesk\CoreFrameworkBundle\Framework\ExtendableComponentInterface;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\UserService;
+use Harryn\Jacobn\CoreFrameworkBundle\Dashboard\DashboardTemplate;
+use Harryn\Jacobn\CoreFrameworkBundle\Framework\ExtendableComponentInterface;
 
 class QuickActionButtonCollection implements ExtendableComponentInterface
 {

@@ -38,6 +38,6 @@ $(function () {
     });
 
     new SavedRepliesComponent({
-        model: uvdesk.ticket.model
+        model: jacobn.ticket.model
     });
 });

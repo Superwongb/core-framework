@@ -1,16 +1,16 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Workflow\Events\Ticket;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Workflow\Events\Ticket;
 
-use Webkul\UVDesk\AutomationBundle\Workflow\FunctionalGroup;
+use Harryn\Jacobn\AutomationBundle\Workflow\FunctionalGroup;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Webkul\UVDesk\AutomationBundle\Workflow\Event as WorkflowEvent;
+use Harryn\Jacobn\AutomationBundle\Workflow\Event as WorkflowEvent;
 
 class Priority extends WorkflowEvent
 {
     public static function getId()
     {
-        return 'uvdesk.ticket.priority_updated';
+        return 'jacobn.ticket.priority_updated';
     }
 
     public static function getDescription()

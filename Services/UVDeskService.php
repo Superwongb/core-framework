@@ -1,14 +1,14 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Services;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Services;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Webkul\UVDesk\CoreFrameworkBundle\Utils\TokenGenerator;
+use Harryn\Jacobn\CoreFrameworkBundle\Utils\TokenGenerator;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Webkul\UVDesk\SupportCenterBundle\Entity\KnowledgebaseWebsite;
+use Harryn\Jacobn\SupportCenterBundle\Entity\KnowledgebaseWebsite;
 
 class UVDeskService
 {
@@ -332,7 +332,7 @@ class UVDeskService
      */
     public function getCurrentWebsitePrefixes()
     {
-        $filePath = $this->container->get('kernel')->getProjectDir() . '/config/packages/uvdesk.yaml';
+        $filePath = $this->container->get('kernel')->getProjectDir() . '/config/packages/jacobn.yaml';
         
         // get file content and index
         $file = file($filePath);
@@ -360,7 +360,7 @@ class UVDeskService
      */
     public function updateWebsitePrefixes($member_panel_prefix, $knowledgebase_prefix)
     {
-        $filePath = $this->container->get('kernel')->getProjectDir() . '/config/packages/uvdesk.yaml';
+        $filePath = $this->container->get('kernel')->getProjectDir() . '/config/packages/jacobn.yaml';
 
         $website_prefixes = [
             'member_prefix' => $member_panel_prefix,

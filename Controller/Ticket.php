@@ -1,37 +1,36 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Controller;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\EventDispatcher\GenericEvent;
-use Webkul\UVDesk\CoreFrameworkBundle\Form as CoreFrameworkBundleForms;
+use Harryn\Jacobn\CoreFrameworkBundle\Form as CoreFrameworkBundleForms;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity as CoreFrameworkBundleEntities;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity as CoreFrameworkBundleEntities;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\DataProxies as CoreFrameworkBundleDataProxies;
-use Webkul\UVDesk\CoreFrameworkBundle\Workflow\Events as CoreWorkflowEvents;
-use Webkul\UVDesk\CoreFrameworkBundle\Tickets\QuickActionButtonCollection;
-use Webkul\UVDesk\CoreFrameworkBundle\Repository\TicketRepository;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\UserService;
+use Harryn\Jacobn\CoreFrameworkBundle\DataProxies as CoreFrameworkBundleDataProxies;
+use Harryn\Jacobn\CoreFrameworkBundle\Workflow\Events as CoreWorkflowEvents;
+use Harryn\Jacobn\CoreFrameworkBundle\Tickets\QuickActionButtonCollection;
+use Harryn\Jacobn\CoreFrameworkBundle\Repository\TicketRepository;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\UserService;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\UVDeskService;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\TicketService;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\EmailService;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\UVDeskService;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\TicketService;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\EmailService;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Attachment;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Thread;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Ticket as CoreBundleTicket;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Tag;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\TicketType;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportRole;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\User;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\TicketPriority;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\TicketStatus;
-use Webkul\UVDesk\MailboxBundle\Services\MailboxService;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Attachment;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Thread;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Ticket as CoreBundleTicket;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Tag;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\TicketType;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportRole;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\User;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\TicketPriority;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\TicketStatus;
 
 class Ticket extends AbstractController
 {
@@ -52,29 +51,14 @@ class Ticket extends AbstractController
         $this->kernel = $kernel;
     }
 
-    public function listTicketCollection(Request $request, MailboxService $mailboxService)
+    public function listTicketCollection(Request $request)
     {
         $entityManager = $this->getDoctrine()->getManager();
 
-        $mailboxCollection = [];
-        $mailboxConfiguration = $mailboxService->parseMailboxConfigurations();
-        
-        foreach ($mailboxConfiguration->getMailboxes() as $mailbox) {
-            $imapConfiguration = $mailbox->getImapConfiguration();
-
-            if (!empty($imapConfiguration)) {
-                $mailboxCollection[] = [
-                    'name' => $mailbox->getName(), 
-                    'email' => $imapConfiguration->getUsername(), 
-                ];
-            }
-        }
-
         return $this->render('@UVDeskCoreFramework//ticketList.html.twig', [
-            'mailboxCollection' => $mailboxCollection, 
-            'ticketStatusCollection' => $entityManager->getRepository(TicketStatus::class)->findAll(), 
-            'ticketTypeCollection' => $entityManager->getRepository(TicketType::class)->findByIsActive(true), 
-            'ticketPriorityCollection' => $entityManager->getRepository(TicketPriority::class)->findAll(), 
+            'ticketStatusCollection' => $entityManager->getRepository(TicketStatus::class)->findAll(),
+            'ticketTypeCollection' => $entityManager->getRepository(TicketType::class)->findByIsActive(true),
+            'ticketPriorityCollection' => $entityManager->getRepository(TicketPriority::class)->findAll(),
         ]);
     }
 
@@ -214,9 +198,9 @@ class Ticket extends AbstractController
         $ticketType = $entityManager->getRepository(TicketType::class)->findOneById($requestParams['type']);
 
         try {
-            if ($this->userService->isfileExists('apps/uvdesk/custom-fields')) {
+            if ($this->userService->isfileExists('apps/jacobn/custom-fields')) {
                 $customFieldsService = $this->get('uvdesk_package_custom_fields.service');
-            } else if ($this->userService->isfileExists('apps/uvdesk/form-component')) {
+            } else if ($this->userService->isfileExists('apps/jacobn/form-component')) {
                 $customFieldsService = $this->get('uvdesk_package_form_component.service');
             }
 
@@ -294,18 +278,17 @@ class Ticket extends AbstractController
                 'entity' =>  $thread->getTicket(),
             ]);
 
-            $this->eventDispatcher->dispatch($event, 'uvdesk.automation.workflow.execute');
+                dump($e->getMessage());
+            $this->eventDispatcher->dispatch($event, 'jacobn.automation.workflow.execute');
         } catch (\Exception $e) {
             // Skip Automation
         }
 
         if (!empty($thread)) {
             $ticket = $thread->getTicket();
-
-            if ($request->request->get('customFields') || $request->files->get('customFields')) {
+            if($request->request->get('customFields') || $request->files->get('customFields')) {
                 $this->ticketService->addTicketCustomFields($thread, $request->request->get('customFields'), $request->files->get('customFields'));                        
             }
-
             $this->addFlash('success', $this->translator->trans('Success ! Ticket has been created successfully.'));
 
             if ($this->userService->isAccessAuthorized('ROLE_ADMIN')) {
@@ -336,9 +319,8 @@ class Ticket extends AbstractController
         $errorContext = [];
         $em = $this->getDoctrine()->getManager();
 
-        if ($id = $request->attributes->get('ticketTypeId')) {
+        if($id = $request->attributes->get('ticketTypeId')) {
             $type = $em->getRepository(TicketType::class)->find($id);
-            
             if (!$type) {
                 $this->noResultFound();
             }
@@ -440,7 +422,7 @@ class Ticket extends AbstractController
             'entity' => $ticket,
         ]);
 
-        $this->eventDispatcher->dispatch($event, 'uvdesk.automation.workflow.execute');
+        $this->eventDispatcher->dispatch($event, 'jacobn.automation.workflow.execute');
         $this->addFlash('success', $this->translator->trans('Success ! Ticket moved to trash successfully.'));
 
         return $this->redirectToRoute('helpdesk_member_ticket_collection');
@@ -518,30 +500,34 @@ class Ticket extends AbstractController
     public function downloadAttachment(Request $request)
     {   
         $attachmentId = $request->attributes->get('attachmendId');
-        $attachmentRepository = $this->getDoctrine()->getManager()->getRepository(Attachment::class);
-        $attachment = $attachmentRepository->findOneById($attachmentId);
+        $attachment = $this->getDoctrine()->getManager()->getRepository(Attachment::class)->findOneById($attachmentId);
+        
         $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
 
-        if (!$attachment) {
+        if (empty($attachment)) {
             $this->noResultFound();
         }
 
-        $ticket = $attachment->getThread()->getTicket();
-        $user = $this->userService->getSessionUser();
-        
-        // Proceed only if user has access to the resource
-        if (false == $this->ticketService->isTicketAccessGranted($ticket, $user)) {
-            throw new \Exception('Access Denied', 403);
+        $thread = $attachment->getThread();
+
+        if (!empty($thread)) {
+            $ticket = $thread->getTicket();
+            $user = $this->userService->getSessionUser();
+
+            // Proceed only if user has access to the resource
+            if (false == $this->ticketService->isTicketAccessGranted($ticket, $user)) {
+                throw new \Exception('Access Denied', 403);
+            }
         }
 
         $path = $this->kernel->getProjectDir() . "/public/". $attachment->getPath();
 
         $response = new Response();
-        $response->setStatusCode(200);
-
         $response->headers->set('Content-type', $attachment->getContentType());
         $response->headers->set('Content-Disposition', 'attachment; filename='. $attachment->getName());
         $response->headers->set('Content-Length', $attachment->getSize());
+
+        $response->setStatusCode(200);
         $response->sendHeaders();
         $response->setContent(readfile($path));
 

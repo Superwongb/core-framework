@@ -1,5 +1,5 @@
 <?php
-namespace Webkul\UVDesk\CoreFrameworkBundle\Services;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Services;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;

@@ -1,10 +1,10 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\UIComponents\Ticket\QuickActionButtons;
+namespace Harryn\Jacobn\CoreFrameworkBundle\UIComponents\Ticket\QuickActionButtons;
 
 use Twig\Environment as TwigEnvironment;
-use Webkul\UVDesk\CoreFrameworkBundle\Dashboard\DashboardTemplate;
-use Webkul\UVDesk\CoreFrameworkBundle\Tickets\QuickActionButtonInterface;
+use Harryn\Jacobn\CoreFrameworkBundle\Dashboard\DashboardTemplate;
+use Harryn\Jacobn\CoreFrameworkBundle\Tickets\QuickActionButtonInterface;
 
 class SavedReplies implements QuickActionButtonInterface
 {

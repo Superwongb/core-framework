@@ -1,6 +1,6 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Entity;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -77,11 +77,11 @@ class Tag
     /**
      * Add ticket
      *
-     * @param \Webkul\UVDesk\CoreFrameworkBundle\Entity\Ticket $ticket
+     * @param \Harryn\Jacobn\CoreFrameworkBundle\Entity\Ticket $ticket
      *
      * @return Tag
      */
-    public function addTicket(\Webkul\UVDesk\CoreFrameworkBundle\Entity\Ticket $ticket)
+    public function addTicket(\Harryn\Jacobn\CoreFrameworkBundle\Entity\Ticket $ticket)
     {
         $this->tickets[] = $ticket;
 
@@ -91,9 +91,9 @@ class Tag
     /**
      * Remove ticket
      *
-     * @param \Webkul\UVDesk\CoreFrameworkBundle\Entity\Ticket $ticket
+     * @param \Harryn\Jacobn\CoreFrameworkBundle\Entity\Ticket $ticket
      */
-    public function removeTicket(\Webkul\UVDesk\CoreFrameworkBundle\Entity\Ticket $ticket)
+    public function removeTicket(\Harryn\Jacobn\CoreFrameworkBundle\Entity\Ticket $ticket)
     {
         $this->tickets->removeElement($ticket);
     }

@@ -1,19 +1,19 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Workflow\Actions\Customer;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Workflow\Actions\Customer;
 
-use Webkul\UVDesk\CoreFrameworkBundle\Entity as CoreEntities;
-use Webkul\UVDesk\AutomationBundle\Workflow\FunctionalGroup;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Ticket;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity as CoreEntities;
+use Harryn\Jacobn\AutomationBundle\Workflow\FunctionalGroup;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Ticket;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Webkul\UVDesk\AutomationBundle\Workflow\Action as WorkflowAction;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\EmailTemplates;
+use Harryn\Jacobn\AutomationBundle\Workflow\Action as WorkflowAction;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\EmailTemplates;
 
 class MailCustomer extends WorkflowAction
 {
     public static function getId()
     {
-        return 'uvdesk.customer.mail_customer';
+        return 'jacobn.customer.mail_customer';
     }
 
     public static function getDescription()

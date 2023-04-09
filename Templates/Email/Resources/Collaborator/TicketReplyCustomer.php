@@ -1,8 +1,8 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Templates\Email\Resources\Collaborator;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Templates\Email\Resources\Collaborator;
 
-use Webkul\UVDesk\CoreFrameworkBundle\Templates\Email\UVDeskEmailTemplateInterface;
+use Harryn\Jacobn\CoreFrameworkBundle\Templates\Email\UVDeskEmailTemplateInterface;
 
 abstract class TicketReplyCustomer implements UVDeskEmailTemplateInterface
 {

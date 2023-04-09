@@ -1,15 +1,15 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Controller;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Controller;
 
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\User;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\User;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\EventDispatcher\GenericEvent;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Webkul\UVDesk\CoreFrameworkBundle\Workflow\Events as CoreWorkflowEvents;
+use Harryn\Jacobn\CoreFrameworkBundle\Workflow\Events as CoreWorkflowEvents;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\UserService;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\UserService;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -65,7 +65,7 @@ class CustomerXHR extends AbstractController
                     'entity' => $user,
                 ]);
 
-                $this->eventDispatcher->dispatch($event, 'uvdesk.automation.workflow.execute');
+                $this->eventDispatcher->dispatch($event, 'jacobn.automation.workflow.execute');
 
                 $json['alertClass'] = 'success';
                 $json['alertMessage'] = $this->translator->trans('Success ! Customer removed successfully.');

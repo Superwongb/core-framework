@@ -1,36 +1,36 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Controller;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity as CoreFrameworkBundleEntities;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportLabel;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Thread;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Ticket;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Tag;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\TicketType;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportRole;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\User;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\TicketPriority;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\TicketStatus;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportGroup;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportTeam;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\TicketLabel;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity as CoreFrameworkBundleEntities;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportLabel;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Thread;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Ticket;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Tag;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\TicketType;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportRole;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\User;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\TicketPriority;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\TicketStatus;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportGroup;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportTeam;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\TicketLabel;
 use Symfony\Component\EventDispatcher\GenericEvent;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Webkul\UVDesk\CoreFrameworkBundle\Workflow\Events as CoreWorkflowEvents;
-use Webkul\UVDesk\CoreFrameworkBundle\Form as CoreFrameworkBundleForms;
+use Harryn\Jacobn\CoreFrameworkBundle\Workflow\Events as CoreWorkflowEvents;
+use Harryn\Jacobn\CoreFrameworkBundle\Form as CoreFrameworkBundleForms;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\DataProxies as CoreFrameworkBundleDataProxies;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\UserService;
+use Harryn\Jacobn\CoreFrameworkBundle\DataProxies as CoreFrameworkBundleDataProxies;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\UserService;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\UVDeskService;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\TicketService;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\EmailService;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\UVDeskService;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\TicketService;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\EmailService;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Webkul\UVDesk\SupportCenterBundle\Entity\ArticleTags;
+use Harryn\Jacobn\SupportCenterBundle\Entity\ArticleTags;
 
 class TicketXHR extends AbstractController
 {
@@ -268,7 +268,7 @@ class TicketXHR extends AbstractController
                         'entity' => $ticket,
                     ]);
 
-                    $this->eventDispatcher->dispatch($event, 'uvdesk.automation.workflow.execute');
+                    $this->eventDispatcher->dispatch($event, 'jacobn.automation.workflow.execute');
 
                     return new Response(json_encode([
                         'alertClass' => 'success',
@@ -307,7 +307,7 @@ class TicketXHR extends AbstractController
                         'entity' => $ticket,
                     ]);
 
-                    $this->eventDispatcher->dispatch($event, 'uvdesk.automation.workflow.execute');
+                    $this->eventDispatcher->dispatch($event, 'jacobn.automation.workflow.execute');
 
                     return new Response(json_encode([
                         'alertClass' => 'success',
@@ -347,7 +347,7 @@ class TicketXHR extends AbstractController
                         'entity' => $ticket,
                     ]);
 
-                    $this->eventDispatcher->dispatch($event, 'uvdesk.automation.workflow.execute');
+                    $this->eventDispatcher->dispatch($event, 'jacobn.automation.workflow.execute');
 
                     return new Response(json_encode([
                         'alertClass' => 'success',
@@ -399,7 +399,7 @@ class TicketXHR extends AbstractController
                         'entity' => $ticket,
                     ]);
 
-                    $this->eventDispatcher->dispatch($event, 'uvdesk.automation.workflow.execute');
+                    $this->eventDispatcher->dispatch($event, 'jacobn.automation.workflow.execute');
 
                     return new Response(json_encode([
                         'alertClass' => 'success',
@@ -449,7 +449,7 @@ class TicketXHR extends AbstractController
                         'entity' => $ticket,
                     ]);
 
-                    $this->eventDispatcher->dispatch($event, 'uvdesk.automation.workflow.execute');
+                    $this->eventDispatcher->dispatch($event, 'jacobn.automation.workflow.execute');
 
                     return new Response(json_encode([
                         'alertClass' => 'success',
@@ -485,7 +485,7 @@ class TicketXHR extends AbstractController
                         'entity' => $ticket,
                     ]);
 
-                    $this->eventDispatcher->dispatch($event, 'uvdesk.automation.workflow.execute');
+                    $this->eventDispatcher->dispatch($event, 'jacobn.automation.workflow.execute');
 
                     return new Response(json_encode([
                         'alertClass' => 'success',
@@ -780,7 +780,7 @@ class TicketXHR extends AbstractController
             'entity' =>  $ticket
         ]);
 
-        $this->eventDispatcher->dispatch($event, 'uvdesk.automation.prepared_response.execute');
+        $this->eventDispatcher->dispatch($event, 'jacobn.automation.prepared_response.execute');
         $this->addFlash('success', $this->translator->trans('Success ! Prepared Response applied successfully.'));
 
         return $this->redirect($this->generateUrl('helpdesk_member_ticket',['ticketId' => $ticketId]));
@@ -929,7 +929,7 @@ class TicketXHR extends AbstractController
                         'entity' => $ticket,
                     ]);
 
-                    $this->eventDispatcher->dispatch($event, 'uvdesk.automation.workflow.execute');
+                    $this->eventDispatcher->dispatch($event, 'jacobn.automation.workflow.execute');
 
                     $json['alertClass'] = 'success';
                     $json['alertMessage'] = $this->translator->trans('Success ! Collaborator added successfully.');

@@ -1,25 +1,16 @@
 <?php
-namespace Webkul\UVDesk\CoreFrameworkBundle\Services;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Services;
 
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\User;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Ticket;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Website;
+use Harryn\Jacobn\CoreFrameworkBundle\Utils\TokenGenerator;
 use Symfony\Component\HttpFoundation\RequestStack;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
-use Symfony\Component\Mailer\Transport;
-use Symfony\Component\Mime\Email;
-use Symfony\Component\Mime\Address;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\EmailTemplates;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\EmailTemplates;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\MicrosoftApp;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\MicrosoftAccount;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Ticket;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\User;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Website;
-use Webkul\UVDesk\CoreFrameworkBundle\Utils\Microsoft\Graph as MicrosoftGraph;
-use Webkul\UVDesk\CoreFrameworkBundle\Utils\TokenGenerator;
-use Webkul\UVDesk\MailboxBundle\Services\MailboxService;
-use Webkul\UVDesk\MailboxBundle\Utils\SMTP\Transport\AppTransportConfigurationInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\MicrosoftIntegration;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class EmailService
 {
@@ -27,16 +18,13 @@ class EmailService
     private $container;
     private $entityManager;
     private $session;
-    private $mailer;
 
-    public function __construct(ContainerInterface $container, RequestStack $request, EntityManagerInterface $entityManager, SessionInterface $session, MailboxService $mailboxService, MicrosoftIntegration $microsoftIntegration)
+    public function __construct(ContainerInterface $container, RequestStack $request, EntityManagerInterface $entityManager, SessionInterface $session)
     {
         $this->request = $request;
         $this->container = $container;
         $this->entityManager = $entityManager;
         $this->session = $session;
-        $this->mailboxService = $mailboxService;
-        $this->microsoftIntegration = $microsoftIntegration;
     }
 
     public function trans($text)
@@ -344,17 +332,17 @@ class EmailService
 
         // Link to company knowledgebase
         if (false == array_key_exists('UVDeskSupportCenterBundle', $this->container->getParameter('kernel.bundles'))) {
-            $companyURL = $this->container->getParameter('uvdesk.site_url');
+            $companyURL = $this->container->getParameter('jacobn.site_url');
         } else {
             $companyURL = $router->generate('helpdesk_knowledgebase', [], UrlGeneratorInterface::ABSOLUTE_URL);
         }
 
         // Resolve path to helpdesk brand image
-        $companyLogoURL = sprintf('http://%s%s', $this->container->getParameter('uvdesk.site_url'), '/bundles/uvdeskcoreframework/images/uv-avatar-uvdesk.png');
+        $companyLogoURL = sprintf('http://%s%s', $this->container->getParameter('jacobn.site_url'), '/bundles/uvdeskcoreframework/images/uv-avatar-jacobn.png');
         $helpdeskKnowledgebaseWebsite = $this->entityManager->getRepository(Website::class)->findOneByCode('knowledgebase');
 
         if (!empty($helpdeskKnowledgebaseWebsite) && null != $helpdeskKnowledgebaseWebsite->getLogo()) {
-            $companyLogoURL = sprintf('http://%s%s', $this->container->getParameter('uvdesk.site_url'), $helpdeskKnowledgebaseWebsite->getLogo());
+            $companyLogoURL = sprintf('http://%s%s', $this->container->getParameter('jacobn.site_url'), $helpdeskKnowledgebaseWebsite->getLogo());
         }
         
         // Link to update account login credentials
@@ -387,16 +375,16 @@ class EmailService
         $helpdeskWebsite = $this->entityManager->getRepository(Website::class)->findOneByCode('helpdesk');
         
         // Resolve path to helpdesk brand image
-        $companyLogoURL = sprintf('http://%s%s', $this->container->getParameter('uvdesk.site_url'), '/bundles/uvdeskcoreframework/images/uv-avatar-uvdesk.png');
+        $companyLogoURL = sprintf('http://%s%s', $this->container->getParameter('jacobn.site_url'), '/bundles/uvdeskcoreframework/images/uv-avatar-jacobn.png');
         $helpdeskKnowledgebaseWebsite = $this->entityManager->getRepository(Website::class)->findOneByCode('knowledgebase');
 
         if (!empty($helpdeskKnowledgebaseWebsite) && null != $helpdeskKnowledgebaseWebsite->getLogo()) {
-            $companyLogoURL = sprintf('http://%s%s', $this->container->getParameter('uvdesk.site_url'), $helpdeskKnowledgebaseWebsite->getLogo());
+            $companyLogoURL = sprintf('http://%s%s', $this->container->getParameter('jacobn.site_url'), $helpdeskKnowledgebaseWebsite->getLogo());
         }
         
         // Link to company knowledgebase
         if (false == array_key_exists('UVDeskSupportCenterBundle', $this->container->getParameter('kernel.bundles'))) {
-            $companyURL = $this->container->getParameter('uvdesk.site_url');
+            $companyURL = $this->container->getParameter('jacobn.site_url');
         } else {
             $companyURL = $router->generate('helpdesk_knowledgebase', [], UrlGeneratorInterface::ABSOLUTE_URL);
         }
@@ -483,7 +471,7 @@ class EmailService
     public function processEmailContent($content, array $emailPlaceholders = [], $isSavedReply = false)
     {
         $twigTemplatingEngine = $this->container->get('twig');
-        $baseEmailTemplate = $this->container->getParameter('uvdesk.default.templates.email');
+        $baseEmailTemplate = $this->container->getParameter('jacobn.default.templates.email');
 
         foreach ($emailPlaceholders as $var => $value) {
             $content = strtr($content, ["{%$var%}" => $value, "{% $var %}" => $value]);
@@ -495,234 +483,120 @@ class EmailService
 
     public function sendMail($subject, $content, $recipient, array $headers = [], $mailboxEmail = null, array $attachments = [], $cc = [], $bcc = [])
     {
-        // Send emails only if any mailer configuration is available
-        $mailer = null;
-        $mailboxConfigurations = $this->mailboxService->parseMailboxConfigurations();
-
+        $error_check = false;
         if (empty($mailboxEmail)) {
-            $mailbox = $mailboxConfigurations->getDefaultMailbox();
-
-            if (empty($mailbox)) {
-                return;
-            } else if (false == $mailbox->getIsEnabled()) {
-                return;
-            }
-
-            $mailboxSmtpConfiguration = $mailbox->getSmtpConfiguration();
-
             // Send email on behalf of support helpdesk
-            $supportEmailName = $mailbox->getName();
-            $supportEmail = $mailboxSmtpConfiguration->getUsername();
+            $supportEmail = $this->container->getParameter('jacobn.support_email.id');
+            $supportEmailName = $this->container->getParameter('jacobn.support_email.name');
+            $mailerID = $this->container->getParameter('jacobn.support_email.mailer_id');
         } else {
             // Register automations conditionally if AutomationBundle has been added as an dependency.
             if (!array_key_exists('UVDeskMailboxBundle', $this->container->getParameter('kernel.bundles'))) {
                 return;
-            }
-
-            $mailbox = $mailboxConfigurations->getOutgoingMailboxByEmailAddress($mailboxEmail);
-
-            // Send email on behalf of configured mailbox
-            if (empty($mailbox)) {
-                // @TODO: Log exception - Mailbox not found
-                $this->session->getFlashBag()->add('warning', $this->container->get('translator')->trans("No mailbox was found for email address '$mailboxEmail'. Please review your settings and try again later."));
-                
-                return;
-            } else if (false == $mailbox->getIsEnabled()) {
-                // @TODO: Log mailbox disabled notice
-                $this->session->getFlashBag()->add('warning', $this->container->get('translator')->trans("The selected mailbox for email address '$mailboxEmail' is currently disabled. Please review your settings and try again later."));
+            } else {
+                // Send email on behalf of configured mailbox
+                try {
+                    $mailbox = $this->container->get('jacobn.mailbox')->getMailboxByEmail($mailboxEmail);
     
-                return;
+                    if (true === $mailbox['enabled']) {
+                        $supportEmail = $mailbox['email'];
+                        $supportEmailName = $mailbox['name'];
+                        $mailerID = $mailbox['smtp_server']['mailer_id'];
+                    } else {
+                        // @TODO: Log mailbox disabled notice
+                        return;
+                    }
+                } catch (\Exception $e) {
+                    $error_check = true;
+                    // @TODO: Log exception - Mailbox not found
+                    return;
+                }
             }
-            
-            $mailboxSmtpConfiguration = $mailbox->getSmtpConfiguration();
-
-            $supportEmailName = $mailbox->getName();
-            $supportEmail = $mailboxSmtpConfiguration->getUsername();
         }
 
-        // Prepare email
-        $email = new Email();
-        $email
-            ->from(new Address($supportEmail, $supportEmailName))
-            ->subject($subject)
-            ->text(strip_tags($content))
-            ->html($content)
-        ;
-
-        // Manage email recipients
-        if (!empty($recipient)) {
-            $email->to($recipient);
+        // Retrieve mailer to be used for sending emails
+        try {
+            $mailer = $this->container->get('swiftmailer.mailer' . (('default' == $mailerID) ? '' : ".$mailerID"));
+            $mailer->getTransport()->setPassword(base64_decode($mailer->getTransport()->getPassword()));
+        } catch (\Exception $e) {
+            $error_check = true;
+            // @TODO: Log exception - Mailer not found
+            return;
         }
 
-        foreach ($cc as $emailAddress) {
-            $email->addCc($emailAddress);
-        }
+        // Create a message
+        $message = (new \Swift_Message($subject))
+            ->setFrom([$supportEmail => $supportEmailName])
+            ->setTo($recipient)
+            ->setBcc($bcc)
+            ->setCc($cc)
+            ->setBody($content, 'text/html')
+            ->addPart(strip_tags($content), 'text/plain');
 
-        foreach ($bcc as $emailAddress) {
-            $email->addBcc($emailAddress);
-        }
-
-        // Manage email attachments
         foreach ($attachments as $attachment) {
             if (!empty($attachment['path']) && !empty($attachment['name'])) {
-                $email->attachFromPath($attachment['path'], $attachment['name']);
+                $message->attach(\Swift_Attachment::fromPath($attachment['path'])->setFilename($attachment['name']));
                 
                 continue;
             } 
 
-            $email->attachFromPath($attachment);
+            $message->attach(\Swift_Attachment::fromPath($attachment));
         }
 
-        // Configure email headers
-        $emailHeaders = $email->getHeaders();
-
-        foreach ($headers as $name => $value) {
-            if (is_array($value) && !empty($value['messageId'])) {
-                $value = $value['messageId'];
+        $messageHeaders = $message->getHeaders();
+        foreach ($headers as $headerName => $headerValue) {
+            if(is_array($headerValue)) {
+                $headerValue = $headerValue['messageId'];
             }
-
-            $emailHeaders->addTextHeader($name, $value);
+            $messageHeaders->addTextHeader($headerName, $headerValue);
         }
-
-        // Send email
-        $messageId = null;
 
         try {
-            if ($mailboxSmtpConfiguration instanceof AppTransportConfigurationInterface) {
-                $microsoftApp = $this->entityManager->getRepository(MicrosoftApp::class)->findOneByClientId($mailboxSmtpConfiguration->getClient());
-
-                if (empty($microsoftApp)) {
-                    $this->session->getFlashBag()->add('warning', $this->container->get('translator')->trans('An unexpected error occurred while trying to send email. Please try again later.'));
-                    $this->session->getFlashBag()->add('warning', $this->container->get('translator')->trans('No associated microsoft apps were found for configured mailbox.'));
-
-                    return null;
-                }
-
-                $microsoftAccount = $this->entityManager->getRepository(MicrosoftAccount::class)->findOneBy([
-                    'email' => $mailboxSmtpConfiguration->getUsername(), 
-                    'microsoftApp' => $microsoftApp, 
-                ]);
-
-                if (empty($microsoftAccount)) {
-                    $this->session->getFlashBag()->add('warning', $this->container->get('translator')->trans('An unexpected error occurred while trying to send email. Please try again later.'));
-                    $this->session->getFlashBag()->add('warning', $this->container->get('translator')->trans('No associated microsoft account was found for configured mailbox.'));
-
-                    return null;
-                }
-
-                $credentials = json_decode($microsoftAccount->getCredentials(), true);
-                $emailParams = [
-                    'subject' => $subject, 
-                    'body' => [
-                        'contentType' => 'HTML', 
-                        'content' => $content, 
-                    ], 
-                    'toRecipients' => [
-                        [
-                            'emailAddress' => [
-                                'address' => $recipient, 
-                            ], 
-                        ], 
-                    ], 
-                ];
-
-                foreach ($headers as $name => $value) {
-                    if ($name == 'X-Transport') {
-                        continue;
-                    }
-
-                    if (is_array($value)) {
-                        $value = $value['messageId'];
-                    }
-
-                    $emailParams['internetMessageHeaders'][] = [
-                        'name' => "x-$name", 
-                        'value' => $value, 
-                    ];
-                }
-
-                $graphResponse = MicrosoftGraph\Me::sendMail($credentials['access_token'], $emailParams);
-
-                // Refresh access token if expired
-                if (!empty($graphResponse['error'])) {
-                    if (!empty($graphResponse['error']['code']) && $graphResponse['error']['code'] == 'InvalidAuthenticationToken') {
-                        $tokenResponse = $this->microsoftIntegration->refreshAccessToken($microsoftApp, $credentials['refresh_token']);
-
-                        if (!empty($tokenResponse['access_token'])) {
-                            $microsoftAccount
-                                ->setCredentials(json_encode($tokenResponse))
-                            ;
-                            
-                            $this->entityManager->persist($microsoftAccount);
-                            $this->entityManager->flush();
-                            
-                            $credentials = json_decode($microsoftAccount->getCredentials(), true);
-
-                            $graphResponse = MicrosoftGraph\Me::sendMail($credentials['access_token'], $emailParams);
-                        }
-                    }
-                }
-            } else {
-                $dsn = strtr("smtp://{email}:{password}@{host}:{port}", [
-                    "{email}" => $mailboxSmtpConfiguration->getUsername(), 
-                    "{password}" => $mailboxSmtpConfiguration->getPassword(), 
-                    "{host}" => $mailboxSmtpConfiguration->getHost(), 
-                    "{port}" => $mailboxSmtpConfiguration->getPort(), 
-                ]);
-
-                if (false == $mailbox->getIsStrictModeEnabled()) {
-                    $dsn .= "?verify_peer=0";
-                }
-
-                $transport = Transport::fromDsn($dsn);
-
-                $sentMessage = $transport->send($email);
-
-                if (!empty($sentMessage)) {
-                    $messageId = $sentMessage->getMessageId();
-                }
-            }
+            $messageId = $message->getId();
+            $mailer->send($message);
+            
+            return "<$messageId>";
         } catch (\Exception $e) {
+            $error_check = true;
             // @TODO: Log exception
-            $this->session->getFlashBag()->add('warning', $this->container->get('translator')->trans('An unexpected error occurred while trying to send email. Please try again later.'));
-            $this->session->getFlashBag()->add('warning', $this->container->get('translator')->trans($e->getMessage()));
         }
 
-        return !empty($messageId) ? "<$messageId>" : null;
+        if ($error_check == true) {
+            $this->session->getFlashBag()->add('warning', $this->container->get('translator')->trans('Warning ! Swiftmailer not working. An error has occurred while sending emails!'));   
+        }
+
+        return null;
     }
 
     public function getCollaboratorName($ticket)
     {
-        $name = null;
         $ticket->lastCollaborator = null;
-
-        if ($ticket->getCollaborators() != null && count($ticket->getCollaborators()) > 0) {
+        $name = null;
+        if($ticket->getCollaborators() != null && count($ticket->getCollaborators()) > 0) {
             try {
                 $ticket->lastCollaborator = $ticket->getCollaborators()[ -1 + count($ticket->getCollaborators()) ];
             } catch(\Exception $e) {
             }
         }
-
-        if ($ticket->lastCollaborator != null) {
+        if($ticket->lastCollaborator != null) {
             $name =  $ticket->lastCollaborator->getFirstName()." ".$ticket->lastCollaborator->getLastName();
         }
         
         return $name != null ? $name : '';
+        
     }
 
     public function getCollaboratorEmail($ticket)
     {
-        $email = null;
         $ticket->lastCollaborator = null;
-
-        if ($ticket->getCollaborators() != null && count($ticket->getCollaborators()) > 0) {
+        $email = null;
+        if($ticket->getCollaborators() != null && count($ticket->getCollaborators()) > 0) {
             try {
                 $ticket->lastCollaborator = $ticket->getCollaborators()[ -1 + count($ticket->getCollaborators()) ];
             } catch(\Exception $e) {
             }
         }
-
-        if ($ticket->lastCollaborator != null) {
+        if($ticket->lastCollaborator != null) {
             $email = $ticket->lastCollaborator->getEmail();
         }
         

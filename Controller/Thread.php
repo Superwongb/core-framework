@@ -1,24 +1,24 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Controller;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\EventDispatcher\GenericEvent;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Ticket;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Ticket;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Attachment;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Attachment;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\TicketStatus;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Thread as TicketThread;
-use Webkul\UVDesk\CoreFrameworkBundle\Workflow\Events as CoreWorkflowEvents;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\UserService;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\TicketStatus;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Thread as TicketThread;
+use Harryn\Jacobn\CoreFrameworkBundle\Workflow\Events as CoreWorkflowEvents;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\UserService;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\UVDeskService;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\TicketService;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\EmailService;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\UVDeskService;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\TicketService;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\EmailService;
 use Symfony\Component\HttpKernel\KernelInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\FileUploadService;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\FileUploadService;
 
 class Thread extends AbstractController
 {
@@ -130,7 +130,7 @@ class Thread extends AbstractController
                     'thread' =>  $thread
                 ]);
 
-                $this->eventDispatcher->dispatch($event, 'uvdesk.automation.workflow.execute');
+                $this->eventDispatcher->dispatch($event, 'jacobn.automation.workflow.execute');
 
                 // @TODO: Render response on the basis of event response (if propogation was stopped or not)
                 $this->addFlash('success', $this->translator->trans('Note added to ticket successfully.'));
@@ -141,7 +141,7 @@ class Thread extends AbstractController
                     'thread' =>  $thread
                 ]);
 
-                $this->eventDispatcher->dispatch($event, 'uvdesk.automation.workflow.execute');
+                $this->eventDispatcher->dispatch($event, 'jacobn.automation.workflow.execute');
 
                 // @TODO: Render response on the basis of event response (if propogation was stopped or not)
                 $this->addFlash('success', $this->translator->trans('Success ! Reply added successfully.'));
@@ -238,7 +238,7 @@ class Thread extends AbstractController
                     'entity' =>  $ticket,
                 ]);
 
-                $this->eventDispatcher->dispatch($event, 'uvdesk.automation.workflow.execute');
+                $this->eventDispatcher->dispatch($event, 'jacobn.automation.workflow.execute');
 
                 $json['alertMessage'] = $this->translator->trans('Success ! Thread updated successfully.');
                 $json['alertClass'] = 'success';
@@ -276,7 +276,7 @@ class Thread extends AbstractController
                 //  $event = new GenericEvent(CoreWorkflowEvents\Ticket\ThreadUpdate::getId(), [
                 //     'entity' =>  $ticket,
                 // ]);
-                // $this->eventDispatcher->dispatch('uvdesk.automation.workflow.execute', $event);
+                // $this->eventDispatcher->dispatch('jacobn.automation.workflow.execute', $event);
 
                 $em->remove($thread);
                 $em->flush();

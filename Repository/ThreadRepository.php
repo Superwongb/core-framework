@@ -1,13 +1,13 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Repository;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Repository;
 
 use Doctrine\ORM\Query;
 use Doctrine\Common\Collections\Criteria;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\User;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Ticket;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Attachment;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Thread;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\User;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Ticket;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Attachment;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Thread;
 
 /**
  * ThreadRepository
@@ -130,11 +130,11 @@ class ThreadRepository extends \Doctrine\ORM\EntityRepository
         $queryParameters = $results->getParams();
 
         $queryParameters['page'] = "replacePage";
-        $paginationData['url'] = '#'.$container->get('uvdesk.service')->buildPaginationQuery($queryParameters);
+        $paginationData['url'] = '#'.$container->get('jacobn.service')->buildPaginationQuery($queryParameters);
 
         $data = array();
         $userService = $container->get('user.service');
-        $uvdeskFileSystemService = $container->get('uvdesk.core.file_system.service');
+        $uvdeskFileSystemService = $container->get('jacobn.core.file_system.service');
 
         foreach ($results->getItems() as $key => $row) {
             $thread = $row[0];

@@ -1,11 +1,11 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\DependencyInjection\Passes;
+namespace Harryn\Jacobn\CoreFrameworkBundle\DependencyInjection\Passes;
 
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Webkul\UVDesk\CoreFrameworkBundle\Framework\ExtendableComponentManager;
-use Webkul\UVDesk\CoreFrameworkBundle\Framework\ExtendableComponentInterface;
+use Harryn\Jacobn\CoreFrameworkBundle\Framework\ExtendableComponentManager;
+use Harryn\Jacobn\CoreFrameworkBundle\Framework\ExtendableComponentInterface;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 
 class Extendables implements CompilerPassInterface

@@ -17,7 +17,7 @@
         {{ include('@UVDeskCoreFramework/Templates/lightskin.html.twig') }}
 
         <!-- Custom Stylesheets -->
-        {% for stylesheet in uvdesk_extensibles.getRegisteredComponent('Webkul\\UVDesk\\CoreFrameworkBundle\\Dashboard\\Dashboard').getDashboardTemplate().getStylesheetResources() %}
+        {% for stylesheet in uvdesk_extensibles.getRegisteredComponent('Harryn\\Jacobn\\CoreFrameworkBundle\\Dashboard\\Dashboard').getDashboardTemplate().getStylesheetResources() %}
             <link href="{{ asset(stylesheet) }}" type="text/css" rel="stylesheet" media="all" />
         {% endfor %}
         
@@ -157,7 +157,7 @@
         {% endblock %}
 
         {# Custom Javascript #}
-        {% for javascript in uvdesk_extensibles.getRegisteredComponent('Webkul\\UVDesk\\CoreFrameworkBundle\\Dashboard\\Dashboard').getDashboardTemplate().getJavascriptResources() %}
+        {% for javascript in uvdesk_extensibles.getRegisteredComponent('Harryn\\Jacobn\\CoreFrameworkBundle\\Dashboard\\Dashboard').getDashboardTemplate().getJavascriptResources() %}
             <script src="{{ asset(javascript) }}" type="text/javascript"></script>
         {% endfor %}
     </body>

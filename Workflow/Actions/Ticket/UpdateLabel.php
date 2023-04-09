@@ -1,18 +1,18 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Workflow\Actions\Ticket;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Workflow\Actions\Ticket;
 
-use Webkul\UVDesk\AutomationBundle\Workflow\FunctionalGroup;
+use Harryn\Jacobn\AutomationBundle\Workflow\FunctionalGroup;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Ticket;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportLabel;
-use Webkul\UVDesk\AutomationBundle\Workflow\Action as WorkflowAction;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Ticket;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportLabel;
+use Harryn\Jacobn\AutomationBundle\Workflow\Action as WorkflowAction;
 
 class UpdateLabel extends WorkflowAction
 {
     public static function getId()
     {
-        return 'uvdesk.ticket.update_label';
+        return 'jacobn.ticket.update_label';
     }
 
     public static function getDescription()

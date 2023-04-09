@@ -1,16 +1,16 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Workflow\Events\Agent;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Workflow\Events\Agent;
 
-use Webkul\UVDesk\AutomationBundle\Workflow\FunctionalGroup;
+use Harryn\Jacobn\AutomationBundle\Workflow\FunctionalGroup;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Webkul\UVDesk\AutomationBundle\Workflow\Event as WorkflowEvent;
+use Harryn\Jacobn\AutomationBundle\Workflow\Event as WorkflowEvent;
 
 class Update extends WorkflowEvent
 {
     public static function getId()
     {
-        return 'uvdesk.agent.update';
+        return 'jacobn.agent.update';
     }
 
     public static function getDescription()

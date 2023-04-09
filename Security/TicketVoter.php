@@ -1,6 +1,6 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Security;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Security;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
@@ -27,14 +27,14 @@ class TicketVoter extends Voter
             return false;
         }
 
-        return $subject instanceof \Webkul\UVDesk\CoreFrameworkBundle\Entity\Ticket;
+        return $subject instanceof \Harryn\Jacobn\CoreFrameworkBundle\Entity\Ticket;
     }
 
     protected function voteOnAttribute($attribute, $ticket, TokenInterface $token)
     {
         $user = $token->getUser();
 
-        if (!$user instanceof \Webkul\UVDesk\SupportBundle\Entity\User) {
+        if (!$user instanceof \Harryn\Jacobn\SupportBundle\Entity\User) {
             return false;
         }
         

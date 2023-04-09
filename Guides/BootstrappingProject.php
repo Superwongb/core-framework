@@ -1,6 +1,6 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Guides;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Guides;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -12,13 +12,13 @@ class BootstrappingProject extends Command
 
     protected function configure()
     {
-        $this->setName('uvdesk:guides:bootstrapping-project');
+        $this->setName('jacobn:guides:bootstrapping-project');
         $this->setDescription('Walks you through on how to provide the minimal setup for your support system.');
     }
     
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $consoleOutputText = require self::$console_guide_resource . "/uvdesk-bootstrapping-guide.php";
+        $consoleOutputText = require self::$console_guide_resource . "/jacobn-bootstrapping-guide.php";
         
         $output->writeln($consoleOutputText);
     }

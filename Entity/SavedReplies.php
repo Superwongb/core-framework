@@ -1,13 +1,13 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Entity;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * EmailTemplatesCompany
  * 
- * @ORM\Entity(repositoryClass="Webkul\UVDesk\CoreFrameworkBundle\Repository\SavedRepliesRepository")
+ * @ORM\Entity(repositoryClass="Harryn\Jacobn\CoreFrameworkBundle\Repository\SavedRepliesRepository")
  * @ORM\Table(name="uv_saved_replies")
  * @ORM\HasLifecycleCallbacks
  */
@@ -145,7 +145,7 @@ class SavedReplies
         return $this->templateId;
     }
     /**
-     * @var \Webkul\UserBundle\Entity\UserData
+     * @var \Harryn\UserBundle\Entity\UserData
      * @ORM\ManyToOne(targetEntity="UserInstance", inversedBy="userSaveReplies")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=true, onDelete="CASCADE")
      */
@@ -157,7 +157,7 @@ class SavedReplies
      *
      * @return Savedreplies
      */
-    public function setUser(\Webkul\UVDesk\CoreFrameworkBundle\Entity\UserInstance $user = null)
+    public function setUser(\Harryn\Jacobn\CoreFrameworkBundle\Entity\UserInstance $user = null)
     {
         $this->user = $user;
 
@@ -167,7 +167,7 @@ class SavedReplies
     /**
      * Get user
      *
-     * @return \Webkul\UserBundle\Entity\UserData 
+     * @return \Harryn\UserBundle\Entity\UserData 
      */
     public function getUser()
     {
@@ -286,7 +286,7 @@ class SavedReplies
      *
      * @return Savedreplies
      */
-    public function addSupportGroup(\Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportGroup $groups)
+    public function addSupportGroup(\Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportGroup $groups)
     {
         $this->groups[] = $groups;
 
@@ -296,9 +296,9 @@ class SavedReplies
     /**
      * Remove groups
      *
-     * @param \Webkul\UserBundle\Entity\UserGroup $groups
+     * @param \Harryn\UserBundle\Entity\UserGroup $groups
      */
-    public function removeSupportGroups(\Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportGroup $groups)
+    public function removeSupportGroups(\Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportGroup $groups)
     {
         $this->groups->removeElement($groups);
     }
@@ -326,10 +326,10 @@ class SavedReplies
     /**
      * Add teams
      *
-     * @param \Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportTeam $teams
+     * @param \Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportTeam $teams
      * @return EmailTemplatesCompany
      */
-    public function addSupportTeam(\Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportTeam $teams)
+    public function addSupportTeam(\Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportTeam $teams)
     {
         $this->teams[] = $teams;
 
@@ -339,9 +339,9 @@ class SavedReplies
     /**
      * Remove teams
      *
-     * @param \Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportTeam $teams
+     * @param \Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportTeam $teams
      */
-    public function removeSupportTeam(\Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportTeam $teams)
+    public function removeSupportTeam(\Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportTeam $teams)
     {
         $this->teams->removeElement($teams);
     }

@@ -1,8 +1,8 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Templates\Email\Resources;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Templates\Email\Resources;
 
-use Webkul\UVDesk\CoreFrameworkBundle\Templates\Email\UVDeskEmailTemplateInterface;
+use Harryn\Jacobn\CoreFrameworkBundle\Templates\Email\UVDeskEmailTemplateInterface;
 
 abstract class UserForgotPassword implements UVDeskEmailTemplateInterface
 {

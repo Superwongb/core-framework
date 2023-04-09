@@ -1,20 +1,20 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\DependencyInjection\Passes;
+namespace Harryn\Jacobn\CoreFrameworkBundle\DependencyInjection\Passes;
 
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 
-use Webkul\UVDesk\CoreFrameworkBundle\Dashboard\Dashboard;
-use Webkul\UVDesk\CoreFrameworkBundle\Dashboard\AsideTemplate;
-use Webkul\UVDesk\CoreFrameworkBundle\Dashboard\SearchTemplate;
-use Webkul\UVDesk\CoreFrameworkBundle\Dashboard\Segments\SearchItemInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Dashboard\Segments\NavigationInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Dashboard\Segments\PanelSidebarInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Dashboard\Segments\PanelSidebarItemInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Dashboard\Segments\HomepageSectionInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Dashboard\Segments\HomepageSectionItemInterface;
+use Harryn\Jacobn\CoreFrameworkBundle\Dashboard\Dashboard;
+use Harryn\Jacobn\CoreFrameworkBundle\Dashboard\AsideTemplate;
+use Harryn\Jacobn\CoreFrameworkBundle\Dashboard\SearchTemplate;
+use Harryn\Jacobn\CoreFrameworkBundle\Dashboard\Segments\SearchItemInterface;
+use Harryn\Jacobn\CoreFrameworkBundle\Dashboard\Segments\NavigationInterface;
+use Harryn\Jacobn\CoreFrameworkBundle\Dashboard\Segments\PanelSidebarInterface;
+use Harryn\Jacobn\CoreFrameworkBundle\Dashboard\Segments\PanelSidebarItemInterface;
+use Harryn\Jacobn\CoreFrameworkBundle\Dashboard\Segments\HomepageSectionInterface;
+use Harryn\Jacobn\CoreFrameworkBundle\Dashboard\Segments\HomepageSectionItemInterface;
 
 class DashboardComponents implements CompilerPassInterface
 {

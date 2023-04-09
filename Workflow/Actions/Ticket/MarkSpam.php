@@ -1,18 +1,18 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Workflow\Actions\Ticket;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Workflow\Actions\Ticket;
 
-use Webkul\UVDesk\AutomationBundle\Workflow\FunctionalGroup;
+use Harryn\Jacobn\AutomationBundle\Workflow\FunctionalGroup;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Ticket;
-use Webkul\UVDesk\AutomationBundle\Workflow\Action as WorkflowAction;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\TicketStatus;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Ticket;
+use Harryn\Jacobn\AutomationBundle\Workflow\Action as WorkflowAction;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\TicketStatus;
 
 class MarkSpam extends WorkflowAction
 {
     public static function getId()
     {
-        return 'uvdesk.ticket.mark_spam';
+        return 'jacobn.ticket.mark_spam';
     }
 
     public static function getDescription()

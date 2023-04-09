@@ -1,12 +1,12 @@
 <?php
-namespace Webkul\UVDesk\CoreFrameworkBundle\Services;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Services;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\AgentActivity;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\User;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Thread;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\AgentActivity;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\User;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Thread;
 
 class ReportService {
 

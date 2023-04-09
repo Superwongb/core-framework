@@ -1,6 +1,6 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Dashboard\Segments;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Dashboard\Segments;
 
 use Symfony\Component\Translation\Translator;
 use Symfony\Component\Translation\Loader\YamlFileLoader;
