@@ -7,10 +7,10 @@ twig:
         max_file_uploads: '%max_file_uploads%'
         upload_max_filesize: '%upload_max_filesize%'
         user_service: "@user.service"
-        uvdesk_service: "@uvdesk.service"
+        uvdesk_service: "@jacobn.service"
         recaptcha_service: "@recaptcha.service"
         ticket_service: "@ticket.service"
         csrf_token_generator: "@security.csrf.token_manager"
         email_service: "@email.service"
-        uvdesk_extensibles: '@uvdesk.extensibles'
-        uvdesk_core_file_system: '@uvdesk.core.file_system.service'
+        uvdesk_extensibles: '@jacobn.extensibles'
+        uvdesk_core_file_system: '@jacobn.core.file_system.service'

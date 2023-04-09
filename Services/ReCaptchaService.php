@@ -1,10 +1,10 @@
 <?php
-namespace Webkul\UVDesk\CoreFrameworkBundle\Services;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Services;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Recaptcha;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Recaptcha;
 
 class ReCaptchaService {
 

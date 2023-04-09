@@ -1,18 +1,18 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Workflow\Actions\Ticket;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Workflow\Actions\Ticket;
 
-use Webkul\UVDesk\AutomationBundle\Workflow\FunctionalGroup;
+use Harryn\Jacobn\AutomationBundle\Workflow\FunctionalGroup;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Ticket;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportTeam;
-use Webkul\UVDesk\AutomationBundle\Workflow\Action as WorkflowAction;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Ticket;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportTeam;
+use Harryn\Jacobn\AutomationBundle\Workflow\Action as WorkflowAction;
 
 class UpdateTeam extends WorkflowAction
 {
     public static function getId()
     {
-        return 'uvdesk.ticket.assign_team';
+        return 'jacobn.ticket.assign_team';
     }
 
     public static function getDescription()

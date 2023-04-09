@@ -1,6 +1,6 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Definition;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Definition;
 
 use Symfony\Component\Config\Loader\Loader;
 use Symfony\Component\Routing\RouteCollection;
@@ -45,6 +45,6 @@ class RouteLoader extends Loader implements RouterInterface
 
     public function supports($resource, $type = null)
     {
-        return 'uvdesk' === $type;
+        return 'jacobn' === $type;
     }
 }

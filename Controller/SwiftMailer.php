@@ -1,16 +1,16 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Controller;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
-use Webkul\UVDesk\CoreFrameworkBundle\SwiftMailer\Event\ConfigurationUpdatedEvent;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\UserService;
+use Harryn\Jacobn\CoreFrameworkBundle\SwiftMailer\Event\ConfigurationUpdatedEvent;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\UserService;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\SwiftMailer\SwiftMailer as SwiftMailerService;
+use Harryn\Jacobn\CoreFrameworkBundle\SwiftMailer\SwiftMailer as SwiftMailerService;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class SwiftMailer extends AbstractController
@@ -89,7 +89,7 @@ class SwiftMailer extends AbstractController
             // Dispatch swiftmailer configuration updated event
             $event = new ConfigurationUpdatedEvent($swiftmailerConfiguration, $existingSwiftmailerConfiguration);
             
-            $container->get('uvdesk.core.event_dispatcher')->dispatch($event, ConfigurationUpdatedEvent::NAME);
+            $container->get('jacobn.core.event_dispatcher')->dispatch($event, ConfigurationUpdatedEvent::NAME);
 
             // Updated swiftmailer configuration file
             $swiftmailerConfigurations[$index] = $swiftmailerConfiguration;            

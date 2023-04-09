@@ -1,6 +1,6 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Framework;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Framework;
 
 interface ExtendableComponentInterface
 {

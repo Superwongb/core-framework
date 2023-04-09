@@ -1,13 +1,13 @@
 <?php
-namespace Webkul\UVDesk\CoreFrameworkBundle\Services;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Services;
 
 use Doctrine\ORM\EntityManagerInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\User;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Ticket;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Website;
-use Webkul\UVDesk\CoreFrameworkBundle\Utils\TokenGenerator;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\User;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Ticket;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Website;
+use Harryn\Jacobn\CoreFrameworkBundle\Utils\TokenGenerator;
 use Symfony\Component\HttpFoundation\RequestStack;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\EmailTemplates;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\EmailTemplates;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -332,17 +332,17 @@ class EmailService
 
         // Link to company knowledgebase
         if (false == array_key_exists('UVDeskSupportCenterBundle', $this->container->getParameter('kernel.bundles'))) {
-            $companyURL = $this->container->getParameter('uvdesk.site_url');
+            $companyURL = $this->container->getParameter('jacobn.site_url');
         } else {
             $companyURL = $router->generate('helpdesk_knowledgebase', [], UrlGeneratorInterface::ABSOLUTE_URL);
         }
 
         // Resolve path to helpdesk brand image
-        $companyLogoURL = sprintf('http://%s%s', $this->container->getParameter('uvdesk.site_url'), '/bundles/uvdeskcoreframework/images/uv-avatar-uvdesk.png');
+        $companyLogoURL = sprintf('http://%s%s', $this->container->getParameter('jacobn.site_url'), '/bundles/uvdeskcoreframework/images/uv-avatar-jacobn.png');
         $helpdeskKnowledgebaseWebsite = $this->entityManager->getRepository(Website::class)->findOneByCode('knowledgebase');
 
         if (!empty($helpdeskKnowledgebaseWebsite) && null != $helpdeskKnowledgebaseWebsite->getLogo()) {
-            $companyLogoURL = sprintf('http://%s%s', $this->container->getParameter('uvdesk.site_url'), $helpdeskKnowledgebaseWebsite->getLogo());
+            $companyLogoURL = sprintf('http://%s%s', $this->container->getParameter('jacobn.site_url'), $helpdeskKnowledgebaseWebsite->getLogo());
         }
         
         // Link to update account login credentials
@@ -375,16 +375,16 @@ class EmailService
         $helpdeskWebsite = $this->entityManager->getRepository(Website::class)->findOneByCode('helpdesk');
         
         // Resolve path to helpdesk brand image
-        $companyLogoURL = sprintf('http://%s%s', $this->container->getParameter('uvdesk.site_url'), '/bundles/uvdeskcoreframework/images/uv-avatar-uvdesk.png');
+        $companyLogoURL = sprintf('http://%s%s', $this->container->getParameter('jacobn.site_url'), '/bundles/uvdeskcoreframework/images/uv-avatar-jacobn.png');
         $helpdeskKnowledgebaseWebsite = $this->entityManager->getRepository(Website::class)->findOneByCode('knowledgebase');
 
         if (!empty($helpdeskKnowledgebaseWebsite) && null != $helpdeskKnowledgebaseWebsite->getLogo()) {
-            $companyLogoURL = sprintf('http://%s%s', $this->container->getParameter('uvdesk.site_url'), $helpdeskKnowledgebaseWebsite->getLogo());
+            $companyLogoURL = sprintf('http://%s%s', $this->container->getParameter('jacobn.site_url'), $helpdeskKnowledgebaseWebsite->getLogo());
         }
         
         // Link to company knowledgebase
         if (false == array_key_exists('UVDeskSupportCenterBundle', $this->container->getParameter('kernel.bundles'))) {
-            $companyURL = $this->container->getParameter('uvdesk.site_url');
+            $companyURL = $this->container->getParameter('jacobn.site_url');
         } else {
             $companyURL = $router->generate('helpdesk_knowledgebase', [], UrlGeneratorInterface::ABSOLUTE_URL);
         }
@@ -471,7 +471,7 @@ class EmailService
     public function processEmailContent($content, array $emailPlaceholders = [], $isSavedReply = false)
     {
         $twigTemplatingEngine = $this->container->get('twig');
-        $baseEmailTemplate = $this->container->getParameter('uvdesk.default.templates.email');
+        $baseEmailTemplate = $this->container->getParameter('jacobn.default.templates.email');
 
         foreach ($emailPlaceholders as $var => $value) {
             $content = strtr($content, ["{%$var%}" => $value, "{% $var %}" => $value]);
@@ -486,9 +486,9 @@ class EmailService
         $error_check = false;
         if (empty($mailboxEmail)) {
             // Send email on behalf of support helpdesk
-            $supportEmail = $this->container->getParameter('uvdesk.support_email.id');
-            $supportEmailName = $this->container->getParameter('uvdesk.support_email.name');
-            $mailerID = $this->container->getParameter('uvdesk.support_email.mailer_id');
+            $supportEmail = $this->container->getParameter('jacobn.support_email.id');
+            $supportEmailName = $this->container->getParameter('jacobn.support_email.name');
+            $mailerID = $this->container->getParameter('jacobn.support_email.mailer_id');
         } else {
             // Register automations conditionally if AutomationBundle has been added as an dependency.
             if (!array_key_exists('UVDeskMailboxBundle', $this->container->getParameter('kernel.bundles'))) {
@@ -496,7 +496,7 @@ class EmailService
             } else {
                 // Send email on behalf of configured mailbox
                 try {
-                    $mailbox = $this->container->get('uvdesk.mailbox')->getMailboxByEmail($mailboxEmail);
+                    $mailbox = $this->container->get('jacobn.mailbox')->getMailboxByEmail($mailboxEmail);
     
                     if (true === $mailbox['enabled']) {
                         $supportEmail = $mailbox['email'];

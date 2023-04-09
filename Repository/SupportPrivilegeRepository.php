@@ -1,6 +1,6 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Repository;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 use Doctrine\Common\Collections;
@@ -58,7 +58,7 @@ class SupportPrivilegeRepository extends \Doctrine\ORM\EntityRepository
         $paginationData = $results->getPaginationData();
         $queryParameters = $results->getParams();
 
-        $paginationData['url'] = '#'.$container->get('uvdesk.service')->buildPaginationQuery($queryParameters);
+        $paginationData['url'] = '#'.$container->get('jacobn.service')->buildPaginationQuery($queryParameters);
 
         $parsedCollection = array_map(function($privilege) {
             return [

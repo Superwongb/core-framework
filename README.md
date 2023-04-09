@@ -1,15 +1,15 @@
-<p align="center"><a href="https://www.uvdesk.com/en/" target="_blank">
-    <img src="https://s3-ap-southeast-1.amazonaws.com/cdn.uvdesk.com/uvdesk/bundles/webkuldefault/images/uvdesk-wide.svg">
+<p align="center"><a href="https://www.jacobn.com/en/" target="_blank">
+    <img src="https://s3-ap-southeast-1.amazonaws.com/cdn.jacobn.com/jacobn/bundles/webkuldefault/images/jacobn-wide.svg">
 </a></p>
 
 <p align="center">
-    <a href="https://packagist.org/packages/uvdesk/core-framework"><img src="https://poser.pugx.org/uvdesk/core-framework/v/stable.svg" alt="Latest Stable Version"></a>
-    <a href="https://packagist.org/packages/uvdesk/core-framework"><img src="https://poser.pugx.org/uvdesk/core-framework/d/total.svg" alt="Total Downloads"></a>
-    <a href="https://packagist.org/packages/uvdesk/core-framework"><img src="https://poser.pugx.org/uvdesk/core-framework/license.svg" alt="License"></a>
-    <a href="https://gitter.im/uvdesk/core-framework"><img src="https://badges.gitter.im/uvdesk/core-framework.svg" alt="connect on gitter"></a>
+    <a href="https://packagist.org/packages/jacobn/core-framework"><img src="https://poser.pugx.org/jacobn/core-framework/v/stable.svg" alt="Latest Stable Version"></a>
+    <a href="https://packagist.org/packages/jacobn/core-framework"><img src="https://poser.pugx.org/jacobn/core-framework/d/total.svg" alt="Total Downloads"></a>
+    <a href="https://packagist.org/packages/jacobn/core-framework"><img src="https://poser.pugx.org/jacobn/core-framework/license.svg" alt="License"></a>
+    <a href="https://gitter.im/jacobn/core-framework"><img src="https://badges.gitter.im/jacobn/core-framework.svg" alt="connect on gitter"></a>
 </p>
 
-The standalone **CoreFrameworkBundle** lies at the heart of the [UVDesk Community][1] helpdesk, providing the core essential functionalities and integration tools to easily integrate any other community helpdesk packages, furhter extending the capabilities of the helpdesk system.
+The standalone **CoreFrameworkBundle** lies at the heart of the [Jacobn Community][1] helpdesk, providing the core essential functionalities and integration tools to easily integrate any other community helpdesk packages, furhter extending the capabilities of the helpdesk system.
 
 The core framework bundle comes loaded with the following features:
 
@@ -32,7 +32,7 @@ This bundle can be easily integrated into any Symfony application (though it is 
 To require the core framework bundle into your symfony project, simply run the following from your project root:
 
 ```bash
-$ composer require uvdesk/core-framework
+$ composer require jacobn/core-framework
 ```
 
 License
@@ -40,7 +40,7 @@ License
 
 The **CoreFrameworkBundle** and libraries included within the bundle are released under the MIT or BSD license.
 
-[1]: https://www.uvdesk.com/
+[1]: https://www.jacobn.com/
 [2]: https://symfony.com/
 [3]: https://symfony.com/4
 [4]: https://flex.symfony.com/

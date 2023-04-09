@@ -1,27 +1,27 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Controller;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\User;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Recaptcha;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\User;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Recaptcha;
 use Symfony\Component\EventDispatcher\GenericEvent;
-use Webkul\UVDesk\CoreFrameworkBundle\Form\UserAccount;
-use Webkul\UVDesk\CoreFrameworkBundle\Form\UserProfile;
+use Harryn\Jacobn\CoreFrameworkBundle\Form\UserAccount;
+use Harryn\Jacobn\CoreFrameworkBundle\Form\UserProfile;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\UserInstance;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportRole;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportTeam;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportGroup;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportPrivilege;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\UserInstance;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportRole;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportTeam;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportGroup;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportPrivilege;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Workflow\Events as CoreWorkflowEvents;
+use Harryn\Jacobn\CoreFrameworkBundle\Workflow\Events as CoreWorkflowEvents;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\UserService;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\UVDeskService;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\FileUploadService;
-use Webkul\UVDesk\CoreFrameworkBundle\FileSystem\FileSystem;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\UserService;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\UVDeskService;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\FileUploadService;
+use Harryn\Jacobn\CoreFrameworkBundle\FileSystem\FileSystem;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\Filesystem\Filesystem as Fileservice;
@@ -385,7 +385,7 @@ class Account extends AbstractController
                         'entity' => $user,
                     ]);
 
-                    $this->eventDispatcher->dispatch($event, 'uvdesk.automation.workflow.execute');
+                    $this->eventDispatcher->dispatch($event, 'jacobn.automation.workflow.execute');
 
                     $this->addFlash('success', $this->translator->trans('Success ! Agent updated successfully.'));
                     return $this->redirect($this->generateUrl('helpdesk_member_account_collection'));

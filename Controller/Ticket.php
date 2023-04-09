@@ -1,36 +1,36 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Controller;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\EventDispatcher\GenericEvent;
-use Webkul\UVDesk\CoreFrameworkBundle\Form as CoreFrameworkBundleForms;
+use Harryn\Jacobn\CoreFrameworkBundle\Form as CoreFrameworkBundleForms;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity as CoreFrameworkBundleEntities;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity as CoreFrameworkBundleEntities;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\DataProxies as CoreFrameworkBundleDataProxies;
-use Webkul\UVDesk\CoreFrameworkBundle\Workflow\Events as CoreWorkflowEvents;
-use Webkul\UVDesk\CoreFrameworkBundle\Tickets\QuickActionButtonCollection;
-use Webkul\UVDesk\CoreFrameworkBundle\Repository\TicketRepository;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\UserService;
+use Harryn\Jacobn\CoreFrameworkBundle\DataProxies as CoreFrameworkBundleDataProxies;
+use Harryn\Jacobn\CoreFrameworkBundle\Workflow\Events as CoreWorkflowEvents;
+use Harryn\Jacobn\CoreFrameworkBundle\Tickets\QuickActionButtonCollection;
+use Harryn\Jacobn\CoreFrameworkBundle\Repository\TicketRepository;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\UserService;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\UVDeskService;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\TicketService;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\EmailService;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\UVDeskService;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\TicketService;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\EmailService;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Attachment;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Thread;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Ticket as CoreBundleTicket;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Tag;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\TicketType;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportRole;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\User;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\TicketPriority;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\TicketStatus;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Attachment;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Thread;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Ticket as CoreBundleTicket;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Tag;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\TicketType;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportRole;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\User;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\TicketPriority;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\TicketStatus;
 
 class Ticket extends AbstractController
 {
@@ -198,9 +198,9 @@ class Ticket extends AbstractController
         $ticketType = $entityManager->getRepository(TicketType::class)->findOneById($requestParams['type']);
 
         try {
-            if ($this->userService->isfileExists('apps/uvdesk/custom-fields')) {
+            if ($this->userService->isfileExists('apps/jacobn/custom-fields')) {
                 $customFieldsService = $this->get('uvdesk_package_custom_fields.service');
-            } else if ($this->userService->isfileExists('apps/uvdesk/form-component')) {
+            } else if ($this->userService->isfileExists('apps/jacobn/form-component')) {
                 $customFieldsService = $this->get('uvdesk_package_form_component.service');
             }
 
@@ -279,7 +279,7 @@ class Ticket extends AbstractController
             ]);
 
                 dump($e->getMessage());
-            $this->eventDispatcher->dispatch($event, 'uvdesk.automation.workflow.execute');
+            $this->eventDispatcher->dispatch($event, 'jacobn.automation.workflow.execute');
         } catch (\Exception $e) {
             // Skip Automation
         }
@@ -422,7 +422,7 @@ class Ticket extends AbstractController
             'entity' => $ticket,
         ]);
 
-        $this->eventDispatcher->dispatch($event, 'uvdesk.automation.workflow.execute');
+        $this->eventDispatcher->dispatch($event, 'jacobn.automation.workflow.execute');
         $this->addFlash('success', $this->translator->trans('Success ! Ticket moved to trash successfully.'));
 
         return $this->redirectToRoute('helpdesk_member_ticket_collection');

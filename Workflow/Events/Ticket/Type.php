@@ -1,16 +1,16 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Workflow\Events\Ticket;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Workflow\Events\Ticket;
 
-use Webkul\UVDesk\AutomationBundle\Workflow\FunctionalGroup;
+use Harryn\Jacobn\AutomationBundle\Workflow\FunctionalGroup;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Webkul\UVDesk\AutomationBundle\Workflow\Event as WorkflowEvent;
+use Harryn\Jacobn\AutomationBundle\Workflow\Event as WorkflowEvent;
 
 class Type extends WorkflowEvent
 {
     public static function getId()
     {
-        return 'uvdesk.ticket.type_updated';
+        return 'jacobn.ticket.type_updated';
     }
 
     public static function getDescription()

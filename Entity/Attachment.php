@@ -1,6 +1,6 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Entity;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -76,7 +76,7 @@ class Attachment
     private $fileSystem;
 
     /**
-     * @var \Webkul\TicketBundle\Entity\Thread
+     * @var \Harryn\TicketBundle\Entity\Thread
      * 
      * @ORM\ManyToOne(targetEntity="Thread", inversedBy="attachments")
      * @ORM\JoinColumn(name="thread_id", referencedColumnName="id", onDelete="CASCADE")
@@ -244,11 +244,11 @@ class Attachment
     /**
      * Set thread
      *
-     * @param \Webkul\TicketBundle\Entity\Thread $thread
+     * @param \Harryn\TicketBundle\Entity\Thread $thread
      * @return Attachment
      * 
      */
-    public function setThread(\Webkul\UVDesk\CoreFrameworkBundle\Entity\Thread $thread = null)
+    public function setThread(\Harryn\Jacobn\CoreFrameworkBundle\Entity\Thread $thread = null)
     {
         $this->thread = $thread;
 
@@ -258,7 +258,7 @@ class Attachment
     /**
      * Get thread
      *
-     * @return \Webkul\UVDesk\CoreFrameworkBundle\Entity\Thread 
+     * @return \Harryn\Jacobn\CoreFrameworkBundle\Entity\Thread
      */
     public function getThread()
     {

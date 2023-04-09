@@ -1,12 +1,12 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Dashboard;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Dashboard;
 
 use Symfony\Component\Routing\RouterInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\UserService;
-use Webkul\UVDesk\CoreFrameworkBundle\Framework\ExtendableComponentInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Dashboard\Segments\HomepageSectionInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Dashboard\Segments\HomepageSectionItemInterface;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\UserService;
+use Harryn\Jacobn\CoreFrameworkBundle\Framework\ExtendableComponentInterface;
+use Harryn\Jacobn\CoreFrameworkBundle\Dashboard\Segments\HomepageSectionInterface;
+use Harryn\Jacobn\CoreFrameworkBundle\Dashboard\Segments\HomepageSectionItemInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class HomepageTemplate implements ExtendableComponentInterface

@@ -1,13 +1,13 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Entity;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Ticket;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\User;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Ticket;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\User;
 
 /**
- * @ORM\Entity(repositoryClass="Webkul\UVDesk\CoreFrameworkBundle\Repository\AgentActivityRepository")
+ * @ORM\Entity(repositoryClass="Harryn\Jacobn\CoreFrameworkBundle\Repository\AgentActivityRepository")
  */
 
 class AgentActivity
@@ -20,13 +20,13 @@ class AgentActivity
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Webkul\UVDesk\CoreFrameworkBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="Harryn\Jacobn\CoreFrameworkBundle\Entity\User")
      * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      */
     private $agent;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Webkul\UVDesk\CoreFrameworkBundle\Entity\Ticket")
+     * @ORM\ManyToOne(targetEntity="Harryn\Jacobn\CoreFrameworkBundle\Entity\Ticket")
      * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      */
     private $ticket;

@@ -74,7 +74,7 @@
   font-size: 18px;
 }
 .uv-icon-kudos {
-  background-image: url("{{ asset('bundles/uvdeskcoreframework/images/uvdesk-kudo-sprite.svg') }}");
+  background-image: url("{{ asset('bundles/uvdeskcoreframework/images/jacobn-kudo-sprite.svg') }}");
   display: inline-block;
   width: 40px;
   height: 40px;
@@ -158,8 +158,8 @@
     </style>
 
 	<div class="uv-inner-section">
-		{% set asideTemplate = 'Webkul\\UVDesk\\CoreFrameworkBundle\\Dashboard\\AsideTemplate' %}
-		{% set asideSidebarReference = 'Webkul\\UVDesk\\CoreFrameworkBundle\\UIComponents\\Dashboard\\Panel\\Sidebars\\Reports' %}
+		{% set asideTemplate = 'Harryn\\Jacobn\\CoreFrameworkBundle\\Dashboard\\AsideTemplate' %}
+		{% set asideSidebarReference = 'Harryn\\Jacobn\\CoreFrameworkBundle\\UIComponents\\Dashboard\\Panel\\Sidebars\\Reports' %}
 
 		{{ uvdesk_extensibles.getRegisteredComponent(asideTemplate).renderSidebar(asideSidebarReference) | raw }}
 		<div class="uv-view {% if app.request.cookies and app.request.cookies.get('uv-asideView') %}uv-aside-view{% endif %}">

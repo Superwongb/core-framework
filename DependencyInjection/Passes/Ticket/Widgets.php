@@ -1,11 +1,11 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\DependencyInjection\Passes\Ticket;
+namespace Harryn\Jacobn\CoreFrameworkBundle\DependencyInjection\Passes\Ticket;
 
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Webkul\UVDesk\CoreFrameworkBundle\Tickets\WidgetInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Tickets\WidgetCollection;
+use Harryn\Jacobn\CoreFrameworkBundle\Tickets\WidgetInterface;
+use Harryn\Jacobn\CoreFrameworkBundle\Tickets\WidgetCollection;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 
 class Widgets implements CompilerPassInterface

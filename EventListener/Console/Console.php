@@ -1,9 +1,9 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\EventListener\Console;
+namespace Harryn\Jacobn\CoreFrameworkBundle\EventListener\Console;
 
 use Doctrine\ORM\EntityManagerInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Mailbox;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Mailbox;
 use Symfony\Component\Console\Event\ConsoleCommandEvent;
 use Symfony\Component\Console\Event\ConsoleTerminateEvent;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -64,7 +64,7 @@ class Console
         }
 
         $output = $event->getOutput();
-        // $mailboxes = $this->container->getParameter('uvdesk.mailboxes');
+        // $mailboxes = $this->container->getParameter('jacobn.mailboxes');
         // $mailboxRepository = $this->entityManager->getRepository(Mailbox::class);
 
         // // Check for any duplicate mailboxes for an email
@@ -72,7 +72,7 @@ class Console
         //     if ($occurrences > 1) {
         //         $output->writeln([
         //             "\n <fg=red;>[MIS-CONFIG]</> <comment>Multiple mailboxes have been configured for email </comment><info>$email</info><comment>.</comment>",
-        //             "\n Please verify your configuration settings under <info>uvdesk.mailboxes</info>.\n",
+        //             "\n Please verify your configuration settings under <info>jacobn.mailboxes</info>.\n",
         //         ]);
 
         //         $event->disableCommand();
@@ -97,7 +97,7 @@ class Console
 
         //         $output->writeln([
         //             "\n <fg=red;>[MIS-CONFIG]</> <info>$mailboxName</info><comment> has been setup as a localized mailbox but no configurations were found for email </comment><info>$mailboxEmail</info><comment>.</comment>",
-        //             "\n Please verify your configuration settings under <info>uvdesk.mailboxes</info>.\n",
+        //             "\n Please verify your configuration settings under <info>jacobn.mailboxes</info>.\n",
         //         ]);
 
         //         $event->disableCommand();

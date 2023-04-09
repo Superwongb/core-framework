@@ -1,6 +1,6 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Definition;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Definition;
 
 interface RouterInterface
 {

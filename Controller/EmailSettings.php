@@ -1,13 +1,13 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Controller;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Controller;
 
 use Symfony\Component\Yaml\Yaml;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\UserService;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\UserService;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\SwiftMailer\SwiftMailer;
+use Harryn\Jacobn\CoreFrameworkBundle\SwiftMailer\SwiftMailer;
 
 class EmailSettings extends AbstractController
 {
@@ -35,9 +35,9 @@ class EmailSettings extends AbstractController
         return $this->render('@UVDeskCoreFramework//Email//emailSettings.html.twig', [
             'swiftmailers' => $swiftmailerConfigurations,
             'email_settings' => [
-                'id' => $this->getParameter('uvdesk.support_email.id'),
-                'name' => $this->getParameter('uvdesk.support_email.name'),
-                'mailer_id' => $this->getParameter('uvdesk.support_email.mailer_id')
+                'id' => $this->getParameter('jacobn.support_email.id'),
+                'name' => $this->getParameter('jacobn.support_email.name'),
+                'mailer_id' => $this->getParameter('jacobn.support_email.mailer_id')
             ],
         ]);
     }

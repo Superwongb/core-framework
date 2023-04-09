@@ -1,9 +1,9 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Workflow\Events\Customer;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Workflow\Events\Customer;
 
-use Webkul\UVDesk\AutomationBundle\Workflow\FunctionalGroup;
-use Webkul\UVDesk\CoreFrameworkBundle\Workflow\Events\UserForgotPassword as UserForgotPasswordEvent;
+use Harryn\Jacobn\AutomationBundle\Workflow\FunctionalGroup;
+use Harryn\Jacobn\CoreFrameworkBundle\Workflow\Events\UserForgotPassword as UserForgotPasswordEvent;
 
 class ForgotPassword extends UserForgotPasswordEvent
 {

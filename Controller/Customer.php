@@ -1,18 +1,18 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Controller;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Controller;
 
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\User;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\UserInstance;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportRole;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\User;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\UserInstance;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportRole;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\EventDispatcher\GenericEvent;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Webkul\UVDesk\CoreFrameworkBundle\Workflow\Events as CoreWorkflowEvents;
+use Harryn\Jacobn\CoreFrameworkBundle\Workflow\Events as CoreWorkflowEvents;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\UserService;
-use Webkul\UVDesk\CoreFrameworkBundle\FileSystem\FileSystem;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\UserService;
+use Harryn\Jacobn\CoreFrameworkBundle\FileSystem\FileSystem;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -136,7 +136,7 @@ class Customer extends AbstractController
                         $errorFlag = 1;
                 }
 
-                if(!$errorFlag && 'hello@uvdesk.com' !== $user->getEmail()) {
+                if(!$errorFlag && 'hello@jacobn.com' !== $user->getEmail()) {
                     if (
                         isset($data['password']['first']) && !empty(trim($data['password']['first'])) 
                         && isset($data['password']['second'])  && !empty(trim($data['password']['second'])) 
@@ -184,7 +184,7 @@ class Customer extends AbstractController
                         'entity' => $user,
                     ]);
 
-                    $this->eventDispatcher->dispatch($event, 'uvdesk.automation.workflow.execute');
+                    $this->eventDispatcher->dispatch($event, 'jacobn.automation.workflow.execute');
 
                     $this->addFlash('success', $this->translator->trans('Success ! Customer information updated successfully.'));
                     return $this->redirect($this->generateUrl('helpdesk_member_manage_customer_account_collection'));
@@ -208,7 +208,7 @@ class Customer extends AbstractController
                     $errorFlag = 1;
             }
 
-            if (!$errorFlag && 'hello@uvdesk.com' !== $user->getEmail()) {
+            if (!$errorFlag && 'hello@jacobn.com' !== $user->getEmail()) {
                 $name = explode(' ', $content['name']);
                 $lastName = isset($name[1]) ? $name[1] : ' ';
                 $user->setFirstName($name[0]);

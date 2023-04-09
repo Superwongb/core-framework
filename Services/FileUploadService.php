@@ -1,12 +1,12 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Services;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Services;
 
-use Webkul\UVDesk\CoreFrameworkBundle\Utils\TokenGenerator;
+use Harryn\Jacobn\CoreFrameworkBundle\Utils\TokenGenerator;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Filesystem\Filesystem;
 
-class FileUploadService extends \Webkul\UVDesk\CoreFrameworkBundle\FileSystem\UploadManagers\Localhost
+class FileUploadService extends \Harryn\Jacobn\CoreFrameworkBundle\FileSystem\UploadManagers\Localhost
 {
     public function uploadFile(UploadedFile $temporaryFile, $prefix = null, bool $renameFile = true)
     {

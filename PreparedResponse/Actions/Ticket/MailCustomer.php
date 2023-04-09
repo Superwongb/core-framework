@@ -1,18 +1,18 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\PreparedResponse\Actions\Ticket;
+namespace Harryn\Jacobn\CoreFrameworkBundle\PreparedResponse\Actions\Ticket;
 
-use Webkul\UVDesk\CoreFrameworkBundle\Entity as CoreEntities;
-use Webkul\UVDesk\AutomationBundle\PreparedResponse\FunctionalGroup;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity as CoreEntities;
+use Harryn\Jacobn\AutomationBundle\PreparedResponse\FunctionalGroup;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Webkul\UVDesk\AutomationBundle\PreparedResponse\Action as PreparedResponseAction;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\EmailTemplates;
+use Harryn\Jacobn\AutomationBundle\PreparedResponse\Action as PreparedResponseAction;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\EmailTemplates;
 
 class MailCustomer extends PreparedResponseAction
 {
     public static function getId()
     {
-        return 'uvdesk.ticket.mail_customer';
+        return 'jacobn.ticket.mail_customer';
     }
 
     public static function getDescription()

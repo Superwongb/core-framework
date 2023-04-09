@@ -1,6 +1,6 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Extension;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Extension;
 
 class TwigExtension extends \Twig_Extension
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Services;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Services;
 
 use Doctrine\ORM\Query;
 use Symfony\Component\Yaml\Yaml;
@@ -8,37 +8,37 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RequestStack;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\User;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\AgentActivity;
-use Webkul\UVDesk\MailboxBundle\Utils\Mailbox\Mailbox;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\User;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\AgentActivity;
+use Harryn\Jacobn\MailboxBundle\Utils\Mailbox\Mailbox;
 use Symfony\Component\EventDispatcher\GenericEvent;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Ticket;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Thread;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Tag;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\TicketType;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\TicketStatus;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\TicketPriority;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportRole;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Website;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportGroup;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportTeam;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportLabel;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\SavedReplies;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Attachment;
-use Webkul\UVDesk\MailboxBundle\Utils\MailboxConfiguration;
-use Webkul\UVDesk\CoreFrameworkBundle\Utils\TokenGenerator;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Ticket;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Thread;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Tag;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\TicketType;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\TicketStatus;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\TicketPriority;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportRole;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Website;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportGroup;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportTeam;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportLabel;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\SavedReplies;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Attachment;
+use Harryn\Jacobn\MailboxBundle\Utils\MailboxConfiguration;
+use Harryn\Jacobn\CoreFrameworkBundle\Utils\TokenGenerator;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Workflow\Events as CoreWorkflowEvents;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\FileUploadService;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\UserService;
-use UVDesk\CommunityPackages\UVDesk\FormComponent\Entity;
-use Webkul\UVDesk\MailboxBundle\Utils\Imap\Configuration as ImapConfiguration;
+use Harryn\Jacobn\CoreFrameworkBundle\Workflow\Events as CoreWorkflowEvents;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\FileUploadService;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\UserService;
+use Jacobn\CommunityPackages\Jacobn\FormComponent\Entity;
+use Harryn\Jacobn\MailboxBundle\Utils\Imap\Configuration as ImapConfiguration;
 use Symfony\Component\Filesystem\Filesystem;
-use Webkul\UVDesk\SupportCenterBundle\Entity\Article;
-use Webkul\UVDesk\SupportCenterBundle\Entity\KnowledgebaseWebsite;
-use Webkul\UVDesk\AutomationBundle\Entity\PreparedResponses;
-use UVDesk\CommunityPackages\UVDesk as UVDeskCommunityPackages;
+use Harryn\Jacobn\SupportCenterBundle\Entity\Article;
+use Harryn\Jacobn\SupportCenterBundle\Entity\KnowledgebaseWebsite;
+use Harryn\Jacobn\AutomationBundle\Entity\PreparedResponses;
+use Jacobn\CommunityPackages\Jacobn as UVDeskCommunityPackages;
 
 class TicketService
 {
@@ -129,7 +129,7 @@ class TicketService
 
     public function getRandomRefrenceId($email = null)
     {
-        $email = !empty($email) ? $email : $this->container->getParameter('uvdesk.support_email.id');
+        $email = !empty($email) ? $email : $this->container->getParameter('jacobn.support_email.id');
         $emailDomain = substr($email, strpos($email, '@'));
 
         return sprintf("<%s%s>", TokenGenerator::generateToken(20, '0123456789abcdefghijklmnopqrstuvwxyz'), $emailDomain);
@@ -143,7 +143,7 @@ class TicketService
 
     public function getDefaultType()
     {
-        $typeCode = $this->container->getParameter('uvdesk.default.ticket.type');
+        $typeCode = $this->container->getParameter('jacobn.default.ticket.type');
         $ticketType = $this->entityManager->getRepository(TicketType::class)->findOneByCode($typeCode);
 
         return !empty($ticketType) ? $ticketType : null;
@@ -151,7 +151,7 @@ class TicketService
 
     public function getDefaultStatus()
     {
-        $statusCode = $this->container->getParameter('uvdesk.default.ticket.status');
+        $statusCode = $this->container->getParameter('jacobn.default.ticket.status');
         $ticketStatus = $this->entityManager->getRepository(TicketStatus::class)->findOneByCode($statusCode);
 
         return !empty($ticketStatus) ? $ticketStatus : null;
@@ -159,7 +159,7 @@ class TicketService
 
     public function getDefaultPriority()
     {
-        $priorityCode = $this->container->getParameter('uvdesk.default.ticket.priority');
+        $priorityCode = $this->container->getParameter('jacobn.default.ticket.priority');
         $ticketPriority = $this->entityManager->getRepository(TicketPriority::class)->findOneByCode($priorityCode);
 
         return !empty($ticketPriority) ? $ticketPriority : null;
@@ -184,9 +184,9 @@ class TicketService
         $ticketTypeCollection = $this->entityManager->getRepository(TicketType::class)->findByIsActive(true);
         
         try {
-            if ($this->userService->isfileExists('apps/uvdesk/custom-fields')) {
+            if ($this->userService->isfileExists('apps/jacobn/custom-fields')) {
                 $headerCustomFields = $this->container->get('uvdesk_package_custom_fields.service')->getCustomFieldsArray('user');
-            } else if ($this->userService->isfileExists('apps/uvdesk/form-component')) {
+            } else if ($this->userService->isfileExists('apps/jacobn/form-component')) {
                 $headerCustomFields = $this->container->get('uvdesk_package_form_component.service')->getCustomFieldsArray('user');
             }
         } catch (\Exception $e) {
@@ -202,9 +202,9 @@ class TicketService
     public function getCustomerCreateTicketCustomFieldSnippet()
     {
         try {
-            if ($this->userService->isfileExists('apps/uvdesk/custom-fields')) {
+            if ($this->userService->isfileExists('apps/jacobn/custom-fields')) {
                 $customFields = $this->container->get('uvdesk_package_custom_fields.service')->getCustomFieldsArray('customer');
-            } else if ($this->userService->isfileExists('apps/uvdesk/form-component')) {
+            } else if ($this->userService->isfileExists('apps/jacobn/form-component')) {
                 $customFields = $this->container->get('uvdesk_package_form_component.service')->getCustomFieldsArray('customer');
             }
         } catch (\Exception $e) {
@@ -249,7 +249,7 @@ class TicketService
         if ('email' == $ticketData['source']) {
             try {
                 if (array_key_exists('UVDeskMailboxBundle', $this->container->getParameter('kernel.bundles'))) {
-                    $mailbox = $this->container->get('uvdesk.mailbox')->getMailboxByEmail($ticketData['mailboxEmail']);
+                    $mailbox = $this->container->get('jacobn.mailbox')->getMailboxByEmail($ticketData['mailboxEmail']);
                     $ticketData['mailboxEmail'] = $mailbox['email'];
                 }
             } catch (\Exception $e) {
@@ -414,7 +414,7 @@ class TicketService
     public function saveThreadAttachment($thread, array $attachments)
     {
         $prefix = 'threads/' . $thread->getId();
-        $uploadManager = $this->container->get('uvdesk.core.file_system.service')->getUploadManager();
+        $uploadManager = $this->container->get('jacobn.core.file_system.service')->getUploadManager();
 
         foreach ($attachments as $attachment) {
             $uploadedFileAttributes = $uploadManager->uploadFile($attachment, $prefix);
@@ -437,7 +437,7 @@ class TicketService
     public function saveThreadEmailAttachments($thread, array $attachments)
     {
         $prefix = 'threads/' . $thread->getId();
-        $uploadManager = $this->container->get('uvdesk.core.file_system.service')->getUploadManager();
+        $uploadManager = $this->container->get('jacobn.core.file_system.service')->getUploadManager();
         
         // Upload thread attachments
         foreach ($attachments as $attachment) {
@@ -563,7 +563,7 @@ class TicketService
         $paginationData = $pagination->getPaginationData();
 
         $paginationParams['page'] = 'replacePage';
-        $paginationData['url'] = '#' . $this->container->get('uvdesk.service')->buildPaginationQuery($paginationParams);
+        $paginationData['url'] = '#' . $this->container->get('jacobn.service')->buildPaginationQuery($paginationParams);
         // $container->get('default.service')->buildSessionUrl('ticket',$queryParameters);
 
 
@@ -764,7 +764,7 @@ class TicketService
         $agentTimeFormat = !empty($activeUser->getTimeformat()) ? $activeUser->getTimeformat() : $activeUserTimeZone->getTimeformat();
         
         $threadRepository = $entityManager->getRepository(Thread::class);
-        $uvdeskFileSystemService = $this->container->get('uvdesk.core.file_system.service');
+        $uvdeskFileSystemService = $this->container->get('jacobn.core.file_system.service');
 
         // Get base query
         $enableLockedThreads = $this->container->get('user.service')->isAccessAuthorized('ROLE_AGENT_MANAGE_LOCK_AND_UNLOCK_THREAD');
@@ -807,7 +807,7 @@ class TicketService
         }
 
         $paginationParams['page'] = 'replacePage';
-        $paginationData['url'] = '#' . $this->container->get('uvdesk.service')->buildPaginationQuery($paginationParams);
+        $paginationData['url'] = '#' . $this->container->get('jacobn.service')->buildPaginationQuery($paginationParams);
         foreach ($pagination->getItems() as $threadDetails) {
             $dbTime = $threadDetails['createdAt'];
             $formattedTime = $this->fomatTimeByPreference($dbTime,$timeZone,$timeFormat,$agentTimeZone,$agentTimeFormat);
@@ -884,7 +884,7 @@ class TicketService
                         'entity' => $ticket,
                     ]);
 
-                    $this->container->get('event_dispatcher')->dispatch($event, 'uvdesk.automation.workflow.execute');
+                    $this->container->get('event_dispatcher')->dispatch($event, 'jacobn.automation.workflow.execute');
 
                     break;
                 case 'delete':
@@ -923,7 +923,7 @@ class TicketService
                             'entity' => $ticket,
                         ]);
     
-                        $this->container->get('event_dispatcher')->dispatch($event, 'uvdesk.automation.workflow.execute');
+                        $this->container->get('event_dispatcher')->dispatch($event, 'jacobn.automation.workflow.execute');
                     }
                     break;
                 case 'status':
@@ -939,7 +939,7 @@ class TicketService
                             'entity' => $ticket,
                         ]);
                         
-                        $this->container->get('event_dispatcher')->dispatch($event, 'uvdesk.automation.workflow.execute');
+                        $this->container->get('event_dispatcher')->dispatch($event, 'jacobn.automation.workflow.execute');
                     }
                     
                     break;
@@ -956,7 +956,7 @@ class TicketService
                             'entity' => $ticket,
                         ]);
     
-                        $this->container->get('event_dispatcher')->dispatch($event, 'uvdesk.automation.workflow.execute');
+                        $this->container->get('event_dispatcher')->dispatch($event, 'jacobn.automation.workflow.execute');
                     }
 
                     break;
@@ -973,7 +973,7 @@ class TicketService
                             'entity' => $ticket,
                         ]);
     
-                        $this->container->get('event_dispatcher')->dispatch($event, 'uvdesk.automation.workflow.execute');
+                        $this->container->get('event_dispatcher')->dispatch($event, 'jacobn.automation.workflow.execute');
                     }
 
                     break;
@@ -990,7 +990,7 @@ class TicketService
                             'entity' => $ticket,
                         ]);
         
-                        $this->container->get('event_dispatcher')->dispatch($event, 'uvdesk.automation.workflow.execute');
+                        $this->container->get('event_dispatcher')->dispatch($event, 'jacobn.automation.workflow.execute');
                     }
 
                     break;
@@ -1007,7 +1007,7 @@ class TicketService
                             'entity' => $ticket,
                         ]);
     
-                        $this->container->get('event_dispatcher')->dispatch($event, 'uvdesk.automation.workflow.execute');
+                        $this->container->get('event_dispatcher')->dispatch($event, 'jacobn.automation.workflow.execute');
                     }
 
                     break;
@@ -1099,7 +1099,7 @@ class TicketService
         $paginationData = $pagination->getPaginationData();
 
         $paginationParams['page'] = 'replacePage';
-        $paginationData['url'] = '#' . $this->container->get('uvdesk.service')->buildPaginationQuery($paginationParams);
+        $paginationData['url'] = '#' . $this->container->get('jacobn.service')->buildPaginationQuery($paginationParams);
 
         return [
             'types' => array_map(function ($ticketType) {
@@ -1137,7 +1137,7 @@ class TicketService
         $paginationData = $pagination->getPaginationData();
 
         $paginationParams['page'] = 'replacePage';
-        $paginationData['url'] = '#' . $this->container->get('uvdesk.service')->buildPaginationQuery($paginationParams);
+        $paginationData['url'] = '#' . $this->container->get('jacobn.service')->buildPaginationQuery($paginationParams);
 
         if (in_array('UVDeskSupportCenterBundle', array_keys($this->container->getParameter('kernel.bundles')))) {
             $articleRepository = $this->entityManager->getRepository(Article::class);
@@ -1195,7 +1195,7 @@ class TicketService
             $attachments = $threadDetails['attachments']->getValues();
 
             if (!empty($attachments)) {
-                $uvdeskFileSystemService = $this->container->get('uvdesk.core.file_system.service');
+                $uvdeskFileSystemService = $this->container->get('jacobn.core.file_system.service');
 
                 $threadDetails['attachments'] = array_map(function ($attachment) use ($uvdeskFileSystemService) {
                     return $uvdeskFileSystemService->getFileTypeAssociations($attachment);
@@ -1238,7 +1238,7 @@ class TicketService
         
             if (!empty($threadDetails['attachments'])) {
                 $entityManager = $this->entityManager;
-                $uvdeskFileSystemService = $this->container->get('uvdesk.core.file_system.service');
+                $uvdeskFileSystemService = $this->container->get('jacobn.core.file_system.service');
 
                 $threadDetails['attachments'] = array_map(function ($attachment) use ($entityManager, $uvdeskFileSystemService, $firewall) {
                     $attachmentReferenceObject = $entityManager->getReference(Attachment::class, $attachment['id']);
@@ -1626,7 +1626,7 @@ class TicketService
 
             if (!empty($threadDetails['attachments'])) {
                 $entityManager = $this->entityManager;
-                $uvdeskFileSystemService = $this->container->get('uvdesk.core.file_system.service');
+                $uvdeskFileSystemService = $this->container->get('jacobn.core.file_system.service');
 
                 $threadDetails['attachments'] = array_map(function ($attachment) use ($entityManager, $uvdeskFileSystemService) {
                     $attachmentReferenceObject = $this->entityManager->getReference(Attachment::class, $attachment['id']);
@@ -1845,12 +1845,12 @@ class TicketService
         $customFieldsService = null;
         $customFieldsEntityReference = null;
         
-        if ($this->userService->isfileExists('apps/uvdesk/custom-fields')) {
+        if ($this->userService->isfileExists('apps/jacobn/custom-fields')) {
             $customFieldsService = $this->container->get('uvdesk_package_custom_fields.service');
             $customFieldsEntityReference = UVDeskCommunityPackages\CustomFields\Entity\CustomFields::class;
             $customFieldValuesEntityReference = UVDeskCommunityPackages\CustomFields\Entity\CustomFieldsValues::class;
             $ticketCustomFieldValuesEntityReference = UVDeskCommunityPackages\CustomFields\Entity\TicketCustomFieldsValues::class;
-        } else if ($this->userService->isfileExists('apps/uvdesk/form-component')) {
+        } else if ($this->userService->isfileExists('apps/jacobn/form-component')) {
             $customFieldsService = $this->container->get('uvdesk_package_form_component.service');
             $customFieldsEntityReference = UVDeskCommunityPackages\FormComponent\Entity\CustomFields::class;
             $customFieldValuesEntityReference = UVDeskCommunityPackages\FormComponent\Entity\CustomFieldsValues::class;

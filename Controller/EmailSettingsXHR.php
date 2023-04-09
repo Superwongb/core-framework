@@ -1,14 +1,14 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Controller;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Controller;
 
 use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Webkul\UVDesk\CoreFrameworkBundle\Services\UserService;
+use Harryn\Jacobn\CoreFrameworkBundle\Services\UserService;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\SwiftMailer\SwiftMailer;
+use Harryn\Jacobn\CoreFrameworkBundle\SwiftMailer\SwiftMailer;
 use Symfony\Component\HttpKernel\KernelInterface;
 
 class EmailSettingsXHR extends AbstractController
@@ -28,7 +28,7 @@ class EmailSettingsXHR extends AbstractController
 
     public function updateSettingsXHR(Request $request)
     {
-        $filePath = $this->kernel->getProjectDir() . '/config/packages/uvdesk.yaml';
+        $filePath = $this->kernel->getProjectDir() . '/config/packages/jacobn.yaml';
 
         $memberPrefix = $this->getParameter('uvdesk_site_path.member_prefix') ?? 'member';
         $customerPrefix = $this->getParameter('uvdesk_site_path.knowledgebase_customer_prefix') ?? 'customer';
@@ -46,7 +46,7 @@ class EmailSettingsXHR extends AbstractController
         $supportEmailConfiguration = json_decode($request->getContent(), true);
         $mailer_id = ( $supportEmailConfiguration['mailer_id'] == 'None Selected' ? '~' : $supportEmailConfiguration['mailer_id'] );
 
-        $file_content_array = strtr(require __DIR__ . "/../Templates/uvdesk.php", [
+        $file_content_array = strtr(require __DIR__ . "/../Templates/jacobn.php", [
             '{{ SUPPORT_EMAIL_ID }}' => $supportEmailConfiguration['id'],
             '{{ SUPPORT_EMAIL_NAME }}' => $supportEmailConfiguration['name'],
             '{{ SUPPORT_EMAIL_MAILER_ID }}' => $mailer_id,
@@ -56,7 +56,7 @@ class EmailSettingsXHR extends AbstractController
             '{{ CUSTOMER_PANEL_PREFIX }}' => $customerPrefix,
         ]);
         
-        // update uvdesk.yaml file
+        // update jacobn.yaml file
         file_put_contents($filePath, $file_content_array);
 
         $result = [

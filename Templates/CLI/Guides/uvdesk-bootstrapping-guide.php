@@ -3,7 +3,7 @@
 return <<<PROMPT
 
 <bg=blue>                                                                 </>
-<bg=blue;fg=white;>   Bootstrapping your UVDesk Community Helpdesk Support System   </>
+<bg=blue;fg=white;>   Bootstrapping your Jacobn Community Helpdesk Support System   </>
 <bg=blue>                                                                 </>
 
 Before continuing, first ensure that you have correctly configured your application 
@@ -17,7 +17,7 @@ under the <fg=blue;options=bold;>Running your application</> guide to start usin
 
     1. Switch to the project directory
     2. Modify your DATABASE_URL config in <info>.env</info>
-    3. Execute the <comment>php bin/console uvdesk:configure-helpdesk</comment> command
+    3. Execute the <comment>php bin/console jacobn:configure-helpdesk</comment> command
     
        This will populate your database with the necessary dataset required by different
        components in your application for proper functioning of your support system.

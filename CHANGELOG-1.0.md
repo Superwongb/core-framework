@@ -90,7 +90,7 @@ This changelog references any relevant changes introduced in 1.0 minor versions.
         * **Issue #368:** member prefix or customer prefix value should be saved in database.
         * **Issue #365:** broken agent images in report filter search bar.
         * **Issue #363:** not able to filter group based on status.
-        * **Issue #362:** An exception has been thrown during the rendering of a template ("Class "1\BaseController" does not exist in C:\Program Files\Xampp\htdocs\uvdesk-community-v1.0.13\config/routes\../../src/Controller/ (which is being imported from "C:\Program Files\Xampp\htdocs\uvdesk-community-v1.0.13\config/routes/annotations.yaml"). Make sure annotations are installed and enabled.").
+        * **Issue #362:** An exception has been thrown during the rendering of a template ("Class "1\BaseController" does not exist in C:\Program Files\Xampp\htdocs\jacobn-community-v1.0.13\config/routes\../../src/Controller/ (which is being imported from "C:\Program Files\Xampp\htdocs\jacobn-community-v1.0.13\config/routes/annotations.yaml"). Make sure annotations are installed and enabled.").
 
 * 1.0.13 (2021-04-02)
     * **Misc. Updates:**
@@ -207,7 +207,7 @@ This changelog references any relevant changes introduced in 1.0 minor versions.
     * **Feature:** Ticket Quick Action Buttons & Dashboard Navigation Items can now define minimum required user privileges to be accessible
     * **Misc. Updates:**
         * Included Github issue templates
-        * Included "Powered by Uvdesk" to dashboard
+        * Included "Powered by jacobn" to dashboard
         * Updated composer dependencies & set minimum required php version to 7.2
 
 * 1.0.3 (2019-10-23)
@@ -218,7 +218,7 @@ This changelog references any relevant changes introduced in 1.0 minor versions.
     * **Misc. Updates:**
         * Added patch to support previously configured workflows with deprecated events
         * Both agents and customers now share a common password reset page (events agent.forgot_password & customer.forgot_password deprecated)
-        * Updated README.md with link to the official gitter chat for uvdesk/core-framework
+        * Updated README.md with link to the official gitter chat for jacobn/core-framework
 
 * 1.0.1 (2019-10-15)
     * **Issue #223:** Custom field privilege issue
@@ -250,7 +250,7 @@ This changelog references any relevant changes introduced in 1.0 minor versions.
     * **Issue #211:** fix initial thread user image in ticket view page (raised by princewebkul)
     * **Issue #171:** Ticket from Imap mail not being created (raised by sukhbirgs)
     * **Issue #192:** Attempt load language dropdown changer after reply on ticket (raised by maranqz)
-    * **Issue #199:** Create New Ticket in UvDesk (raised by sbonzanni)
+    * **Issue #199:** Create New Ticket in jacobn (raised by sbonzanni)
     * **Issue #108:** Receives ticket from the blocked user (raised by vaishaliwebkul)
     * **Issue #62:** Duplicate reply added to old ticket when fetch new ticket from mailbox (raised by vaishaliwebkul)
     * **Issue #203:** Super User gets logout when update profile (raised by vaishaliwebkul)
@@ -261,7 +261,7 @@ This changelog references any relevant changes introduced in 1.0 minor versions.
     * **Issue #185:** Translate russian (raised by maranqz)
     * **Issue #204:** Misc. changes (raised by kumarSaurabh27)
     * **Issue #201:** Error with update users - SQL Unique constraint (raised by piyushwebkul)
-    * **Issue #88:** No feature provided to add support email in uvdesk.yaml file  (raised by vaishaliwebkul)
+    * **Issue #88:** No feature provided to add support email in jacobn.yaml file  (raised by vaishaliwebkul)
     * **Issue #112:** Getting exception when click to view quick view ticket icon (raised by vaishaliwebkul)
     * **Issue #176:** Check Time format at customer panel  (raised by vaishaliwebkul)
     * **Issue #200:** Mailbox not found in PROD environment (raised by vaishaliwebkul)
@@ -374,7 +374,7 @@ This changelog references any relevant changes introduced in 1.0 minor versions.
     * **Issue #78:** Textual changes in swift mailer views and removed function from controllers. (raised by papnoisanjeev)
     * **Issue #77:** missing configurations of mailbox and code refactoring (raised by shubhwebkul)
     * **Issue #76:** Default Swift Mailer Config with comment spool and url (raised by papnoisanjeev)
-    * **Issue #69:** Decoupled UVDesk Mailboxes into seperate component (raised by akshaywebkul)
+    * **Issue #69:** Decoupled Jacobn Mailboxes into seperate component (raised by akshaywebkul)
     * **Issue #68:** Filtration of duplicate routes (raised by shubhwebkul)
     * **Issue #66:** Ticket type with status active will only show with type drop down in ticket. (raised by papnoisanjeev)
     * **Issue #61:** Removed some sources from filter which are not present yet. (raised by papnoisanjeev)
@@ -409,7 +409,7 @@ This changelog references any relevant changes introduced in 1.0 minor versions.
     * **Issue #23:** fixed issues (raised by shubhwebkul)
     * **Issue #22:** Update attachments count (raised by shubhwebkul)
     * **Issue #21:** Transfer ticket action added in workflow. (raised by papnoisanjeev)
-    * **Issue #20:** Mail for customer create on uvdesk (raised by shubhwebkul)
+    * **Issue #20:** Mail for customer create on jacobn (raised by shubhwebkul)
     * **Issue #19:** Issue #65 resolved (raised by shubhwebkul)
     * **Issue #18:** Ticket list sorting resolve and added some more formats for attachments (raised by papnoisanjeev)
     * **Issue #17:** customer create email (raised by shubhwebkul)

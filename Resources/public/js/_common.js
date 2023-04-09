@@ -191,7 +191,7 @@ $(function() {
             'drop .uv-image-upload-brick input': 'dropOnImage',
             'mouseover [data-toggle="tooltip"]': 'openTooltip',
             'mouseout [data-toggle="tooltip"]': 'closeTooltip',
-            'click #open-uvdesk-tour': 'openUVdeskTour'
+            'click #open-jacobn-tour': 'openUVdeskTour'
         },
     	fullViewLoader: _.template($('#full-view-loader').html()) ,
         initialize: function() {

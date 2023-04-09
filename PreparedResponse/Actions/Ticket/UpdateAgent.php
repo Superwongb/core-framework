@@ -1,18 +1,18 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\PreparedResponse\Actions\Ticket;
+namespace Harryn\Jacobn\CoreFrameworkBundle\PreparedResponse\Actions\Ticket;
 
-use Webkul\UVDesk\AutomationBundle\PreparedResponse\FunctionalGroup;
+use Harryn\Jacobn\AutomationBundle\PreparedResponse\FunctionalGroup;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Ticket;
-use Webkul\UVDesk\AutomationBundle\PreparedResponse\Action as PreparedResponseAction;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\User;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Ticket;
+use Harryn\Jacobn\AutomationBundle\PreparedResponse\Action as PreparedResponseAction;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\User;
 
 class UpdateAgent extends PreparedResponseAction
 {
     public static function getId()
     {
-        return 'uvdesk.ticket.assign_agent';
+        return 'jacobn.ticket.assign_agent';
     }
 
     public static function getDescription()

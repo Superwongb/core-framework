@@ -75,8 +75,8 @@
         }
 	</style>
 	<div class="uv-inner-section">
-		{% set asideTemplate = 'Webkul\\UVDesk\\CoreFrameworkBundle\\Dashboard\\AsideTemplate' %}
-		{% set asideSidebarReference = 'Webkul\\UVDesk\\CoreFrameworkBundle\\UIComponents\\Dashboard\\Panel\\Sidebars\\Reports' %}
+		{% set asideTemplate = 'Harryn\\Jacobn\\CoreFrameworkBundle\\Dashboard\\AsideTemplate' %}
+		{% set asideSidebarReference = 'Harryn\\Jacobn\\CoreFrameworkBundle\\UIComponents\\Dashboard\\Panel\\Sidebars\\Reports' %}
 
 		{{ uvdesk_extensibles.getRegisteredComponent(asideTemplate).renderSidebar(asideSidebarReference) | raw }}
 		

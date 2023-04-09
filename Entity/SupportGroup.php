@@ -1,12 +1,12 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Entity;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * SupportGroup
- * @ORM\Entity(repositoryClass="Webkul\UVDesk\CoreFrameworkBundle\Repository\SupportGroupRepository")
+ * @ORM\Entity(repositoryClass="Harryn\Jacobn\CoreFrameworkBundle\Repository\SupportGroupRepository")
  * @ORM\HasLifecycleCallbacks
  * @ORM\Table(name="uv_support_group")
  */
@@ -218,11 +218,11 @@ class SupportGroup
     /**
      * Add user
      *
-     * @param \Webkul\UVDesk\CoreFrameworkBundle\Entity\UserInstance $user
+     * @param \Harryn\Jacobn\CoreFrameworkBundle\Entity\UserInstance $user
      *
      * @return SupportGroup
      */
-    public function addUser(\Webkul\UVDesk\CoreFrameworkBundle\Entity\UserInstance $user)
+    public function addUser(\Harryn\Jacobn\CoreFrameworkBundle\Entity\UserInstance $user)
     {
         $this->users[] = $user;
 
@@ -232,9 +232,9 @@ class SupportGroup
     /**
      * Remove user
      *
-     * @param \Webkul\UVDesk\CoreFrameworkBundle\Entity\UserInstance $user
+     * @param \Harryn\Jacobn\CoreFrameworkBundle\Entity\UserInstance $user
      */
-    public function removeUser(\Webkul\UVDesk\CoreFrameworkBundle\Entity\UserInstance $user)
+    public function removeUser(\Harryn\Jacobn\CoreFrameworkBundle\Entity\UserInstance $user)
     {
         $this->users->removeElement($user);
     }
@@ -252,11 +252,11 @@ class SupportGroup
     /**
      * Add admin
      *
-     * @param \Webkul\UVDesk\CoreFrameworkBundle\Entity\UserInstance $admin
+     * @param \Harryn\Jacobn\CoreFrameworkBundle\Entity\UserInstance $admin
      *
      * @return SupportGroup
      */
-    public function addAdmin(\Webkul\UVDesk\CoreFrameworkBundle\Entity\UserInstance $admin)
+    public function addAdmin(\Harryn\Jacobn\CoreFrameworkBundle\Entity\UserInstance $admin)
     {
         $this->admins[] = $admin;
 
@@ -266,9 +266,9 @@ class SupportGroup
     /**
      * Remove admin
      *
-     * @param \Webkul\UVDesk\CoreFrameworkBundle\Entity\UserInstance $admin
+     * @param \Harryn\Jacobn\CoreFrameworkBundle\Entity\UserInstance $admin
      */
-    public function removeAdmin(\Webkul\UVDesk\CoreFrameworkBundle\Entity\UserInstance $admin)
+    public function removeAdmin(\Harryn\Jacobn\CoreFrameworkBundle\Entity\UserInstance $admin)
     {
         $this->admins->removeElement($admin);
     }
@@ -286,11 +286,11 @@ class SupportGroup
     /**
      * Add supportTeam
      *
-     * @param \Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportTeam $supportTeam
+     * @param \Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportTeam $supportTeam
      *
      * @return SupportGroup
      */
-    public function addSupportTeam(\Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportTeam $supportTeam)
+    public function addSupportTeam(\Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportTeam $supportTeam)
     {
         $this->supportTeams[] = $supportTeam;
 
@@ -300,9 +300,9 @@ class SupportGroup
     /**
      * Remove supportTeam
      *
-     * @param \Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportTeam $supportTeam
+     * @param \Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportTeam $supportTeam
      */
-    public function removeSupportTeam(\Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportTeam $supportTeam)
+    public function removeSupportTeam(\Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportTeam $supportTeam)
     {
         $this->supportTeams->removeElement($supportTeam);
     }

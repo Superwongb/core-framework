@@ -1,9 +1,9 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Package;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Package;
 
-use Webkul\UVDesk\PackageManager\Composer\ComposerPackage;
-use Webkul\UVDesk\PackageManager\Composer\ComposerPackageExtension;
+use Harryn\Jacobn\PackageManager\Composer\ComposerPackage;
+use Harryn\Jacobn\PackageManager\Composer\ComposerPackageExtension;
 
 class Composer extends ComposerPackageExtension
 {
@@ -11,7 +11,7 @@ class Composer extends ComposerPackageExtension
     {
         $composerPackage = new ComposerPackage();
         $composerPackage
-            ->movePackageConfig('config/packages/uvdesk.yaml', 'Templates/config.yaml')
+            ->movePackageConfig('config/packages/jacobn.yaml', 'Templates/config.yaml')
             ->movePackageConfig('templates/mail.html.twig', 'Templates/Email/base.html.twig')
             ->movePackageConfig('config/packages/security.yaml', 'Templates/security.yaml')
             ->movePackageConfig('config/packages/doctrine.yaml', 'Templates/doctrine.yaml')

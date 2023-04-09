@@ -1,10 +1,10 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\EventListener;
+namespace Harryn\Jacobn\CoreFrameworkBundle\EventListener;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\SwiftMailer\Event\ConfigurationRemovedEvent;
-use Webkul\UVDesk\CoreFrameworkBundle\SwiftMailer\Event\ConfigurationUpdatedEvent;
+use Harryn\Jacobn\CoreFrameworkBundle\SwiftMailer\Event\ConfigurationRemovedEvent;
+use Harryn\Jacobn\CoreFrameworkBundle\SwiftMailer\Event\ConfigurationUpdatedEvent;
 
 class Swiftmailer
 {
@@ -17,18 +17,18 @@ class Swiftmailer
 
     private function getPathToConfigurationFile()
     {
-        return $this->container->getParameter('kernel.project_dir') . '/config/packages/uvdesk.yaml';
+        return $this->container->getParameter('kernel.project_dir') . '/config/packages/jacobn.yaml';
     }
 
     private function updateSwiftmailerConfigurationId($swiftmailerId = null)
     {
-        $supportId = $this->container->getParameter('uvdesk.support_email.id');
-        $supportName = $this->container->getParameter('uvdesk.support_email.name');
+        $supportId = $this->container->getParameter('jacobn.support_email.id');
+        $supportName = $this->container->getParameter('jacobn.support_email.name');
         
         if (!empty($supportId) && !empty($supportName)) {
-            $template = require __DIR__ . '/../Templates/uvdesk.php';
+            $template = require __DIR__ . '/../Templates/jacobn.php';
             $content = strtr($template, [
-                '{{ SITE_URL }}' => $this->container->getParameter('uvdesk.site_url'),
+                '{{ SITE_URL }}' => $this->container->getParameter('jacobn.site_url'),
                 '{{ SUPPORT_EMAIL_ID }}' => $supportId,
                 '{{ SUPPORT_EMAIL_NAME }}' => $supportName,
                 '{{ SUPPORT_EMAIL_MAILER_ID }}'  => $swiftmailerId ?? '~',
@@ -42,7 +42,7 @@ class Swiftmailer
 
     public function onSwiftmailerConfigurationUpdated(ConfigurationUpdatedEvent $event)
     {
-        $swiftmailerId = $this->container->hasParameter('uvdesk.support_email.mailer_id') ? $this->container->getParameter('uvdesk.support_email.mailer_id') : null;
+        $swiftmailerId = $this->container->hasParameter('jacobn.support_email.mailer_id') ? $this->container->getParameter('jacobn.support_email.mailer_id') : null;
         
         if (!empty($swiftmailerId)) {
             $updatedSwiftmailerConfiguration = $event->getUpdatedSwiftMailerConfiguration();
@@ -58,7 +58,7 @@ class Swiftmailer
 
     public function onSwiftmailerConfigurationRemoved(ConfigurationRemovedEvent $event)
     {
-        $swiftmailerId = $this->container->hasParameter('uvdesk.support_email.mailer_id') ? $this->container->getParameter('uvdesk.support_email.mailer_id') : null;
+        $swiftmailerId = $this->container->hasParameter('jacobn.support_email.mailer_id') ? $this->container->getParameter('jacobn.support_email.mailer_id') : null;
         
         if (!empty($swiftmailerId)) {
             $swiftmailerConfiguration = $event->getSwiftMailerConfiguration();

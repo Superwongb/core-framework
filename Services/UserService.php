@@ -1,29 +1,29 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Services;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Services;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Common\Collections\Criteria;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\User;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\User;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportRole;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\UserInstance;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Ticket;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportPrivilege;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportGroup;    
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportTeam;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\SavedReplies;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity\Website;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportRole;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\UserInstance;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Ticket;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportPrivilege;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportGroup;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportTeam;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\SavedReplies;
+use Harryn\Jacobn\CoreFrameworkBundle\Entity\Website;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\EventDispatcher\GenericEvent;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Workflow\Events as CoreWorkflowEvents;
+use Harryn\Jacobn\CoreFrameworkBundle\Workflow\Events as CoreWorkflowEvents;
 use Symfony\Component\Translation\Translator;
 use Symfony\Component\Translation\Loader\YamlFileLoader;
 use Twig\Environment as TwigEnvironment;
 use Symfony\Component\Filesystem\Filesystem as Fileservice;
-use Webkul\UVDesk\SupportCenterBundle\Entity\KnowledgebaseWebsite;
+use Harryn\Jacobn\SupportCenterBundle\Entity\KnowledgebaseWebsite;
 
 class UserService
 {
@@ -46,10 +46,10 @@ class UserService
         $ticket = $this->entityManager->getRepository(Ticket::class)->findOneById($request->attributes->get('id'));
 
         try {
-            if ($this->isfileExists('apps/uvdesk/custom-fields')) {
+            if ($this->isfileExists('apps/jacobn/custom-fields')) {
                 $customFieldsService = $this->container->get('uvdesk_package_custom_fields.service');
                 $registeredBaseTwigPath = '_uvdesk_extension_uvdesk_custom_fields';
-            } else if ($this->isfileExists('apps/uvdesk/form-component')) {
+            } else if ($this->isfileExists('apps/jacobn/form-component')) {
                 $customFieldsService = $this->container->get('uvdesk_package_form_component.service');
                 $registeredBaseTwigPath = '_uvdesk_extension_uvdesk_form_component';
             }
@@ -247,7 +247,7 @@ class UserService
             $userInstance->setIsStarred(!empty($extras['starred']) ? (bool) $extras['starred'] : false);
 
             if (!empty($extras['image'])) {
-                $assetDetails = $this->container->get('uvdesk.core.file_system.service')->getUploadManager()->uploadFile($extras['image'], 'profile');
+                $assetDetails = $this->container->get('jacobn.core.file_system.service')->getUploadManager()->uploadFile($extras['image'], 'profile');
 
                 if (!empty($assetDetails)) {
                     $userInstance->setProfileImagePath($assetDetails['path']);
@@ -263,7 +263,7 @@ class UserService
             $eventId = 'ROLE_CUSTOMER' == $role->getCode() ? CoreWorkflowEvents\Customer\Create::getId() : CoreWorkflowEvents\Agent\Create::getId();
             $event = new GenericEvent($eventId, ['entity' => $user]);
 
-            $this->container->get('event_dispatcher')->dispatch($event, 'uvdesk.automation.workflow.execute');
+            $this->container->get('event_dispatcher')->dispatch($event, 'jacobn.automation.workflow.execute');
         }
 
         return $user;

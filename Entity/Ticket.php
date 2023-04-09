@@ -1,12 +1,12 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Entity;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Ticket
- * @ORM\Entity(repositoryClass="Webkul\UVDesk\CoreFrameworkBundle\Repository\TicketRepository")
+ * @ORM\Entity(repositoryClass="Harryn\Jacobn\CoreFrameworkBundle\Repository\TicketRepository")
  * @ORM\HasLifecycleCallbacks
  * @ORM\Table(name="uv_ticket")
  */
@@ -126,49 +126,49 @@ class Ticket
     private $collaborators;
 
     /**
-     * @var \Webkul\UVDesk\CoreFrameworkBundle\Entity\TicketStatus
+     * @var \Harryn\Jacobn\CoreFrameworkBundle\Entity\TicketStatus
      * @ORM\ManyToOne(targetEntity="TicketStatus")
      * @ORM\JoinColumn(name="status_id", referencedColumnName="id")
      */
     private $status;
 
     /**
-     * @var \Webkul\UVDesk\CoreFrameworkBundle\Entity\TicketPriority
+     * @var \Harryn\Jacobn\CoreFrameworkBundle\Entity\TicketPriority
      * @ORM\ManyToOne(targetEntity="TicketPriority")
      * @ORM\JoinColumn(name="priority_id", referencedColumnName="id")
      */
     private $priority;
 
     /**
-     * @var \Webkul\UVDesk\CoreFrameworkBundle\Entity\TicketType
+     * @var \Harryn\Jacobn\CoreFrameworkBundle\Entity\TicketType
      * @ORM\ManyToOne(targetEntity="TicketType")
      * @ORM\JoinColumn(name="type_id", referencedColumnName="id", nullable=true, onDelete="SET NULL")
      */
     private $type;
 
     /**
-     * @var \Webkul\UVDesk\CoreFrameworkBundle\Entity\User
+     * @var \Harryn\Jacobn\CoreFrameworkBundle\Entity\User
      * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumn(name="customer_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $customer;
 
     /**
-     * @var \Webkul\UVDesk\CoreFrameworkBundle\Entity\User
+     * @var \Harryn\Jacobn\CoreFrameworkBundle\Entity\User
      * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumn(name="agent_id", referencedColumnName="id", onDelete="SET NULL", nullable=true)
      */
     private $agent;
 
     /**
-     * @var \Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportGroup
+     * @var \Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportGroup
      * @ORM\ManyToOne(targetEntity="SupportGroup", inversedBy="tickets")
      * @ORM\JoinColumn(name="group_id", referencedColumnName="id", onDelete="SET NULL", nullable=true)
      */
     private $supportGroup;
 
     /**
-     * @var \Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportTeam
+     * @var \Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportTeam
      * @ORM\ManyToOne(targetEntity="SupportTeam")
      * @ORM\JoinColumn(name="subGroup_id", referencedColumnName="id", nullable=true, onDelete="SET NULL")
      */
@@ -530,11 +530,11 @@ class Ticket
     /**
      * Add thread
      *
-     * @param \Webkul\UVDesk\CoreFrameworkBundle\Entity\Thread $thread
+     * @param \Harryn\Jacobn\CoreFrameworkBundle\Entity\Thread $thread
      *
      * @return Ticket
      */
-    public function addThread(\Webkul\UVDesk\CoreFrameworkBundle\Entity\Thread $thread)
+    public function addThread(\Harryn\Jacobn\CoreFrameworkBundle\Entity\Thread $thread)
     {
         $this->threads[] = $thread;
 
@@ -544,9 +544,9 @@ class Ticket
     /**
      * Remove thread
      *
-     * @param \Webkul\UVDesk\CoreFrameworkBundle\Entity\Thread $thread
+     * @param \Harryn\Jacobn\CoreFrameworkBundle\Entity\Thread $thread
      */
-    public function removeThread(\Webkul\UVDesk\CoreFrameworkBundle\Entity\Thread $thread)
+    public function removeThread(\Harryn\Jacobn\CoreFrameworkBundle\Entity\Thread $thread)
     {
         $this->threads->removeElement($thread);
     }
@@ -564,11 +564,11 @@ class Ticket
     /**
      * Add rating
      *
-     * @param \Webkul\UVDesk\CoreFrameworkBundle\Entity\TicketRating $rating
+     * @param \Harryn\Jacobn\CoreFrameworkBundle\Entity\TicketRating $rating
      *
      * @return Ticket
      */
-    public function addRating(\Webkul\UVDesk\CoreFrameworkBundle\Entity\TicketRating $rating)
+    public function addRating(\Harryn\Jacobn\CoreFrameworkBundle\Entity\TicketRating $rating)
     {
         $this->ratings[] = $rating;
 
@@ -578,9 +578,9 @@ class Ticket
     /**
      * Remove rating
      *
-     * @param \Webkul\UVDesk\CoreFrameworkBundle\Entity\TicketRating $rating
+     * @param \Harryn\Jacobn\CoreFrameworkBundle\Entity\TicketRating $rating
      */
-    public function removeRating(\Webkul\UVDesk\CoreFrameworkBundle\Entity\TicketRating $rating)
+    public function removeRating(\Harryn\Jacobn\CoreFrameworkBundle\Entity\TicketRating $rating)
     {
         $this->ratings->removeElement($rating);
     }
@@ -598,10 +598,10 @@ class Ticket
     /**
      * Add collaborators
      *
-     * @param \Webkul\UserBundle\Entity\User $collaborators
+     * @param \Harryn\UserBundle\Entity\User $collaborators
      * @return Ticket
      */
-    public function addCollaborator(\Webkul\UVDesk\CoreFrameworkBundle\Entity\User $collaborators)
+    public function addCollaborator(\Harryn\Jacobn\CoreFrameworkBundle\Entity\User $collaborators)
     {
         $this->collaborators[] = $collaborators;
         return $this;
@@ -610,9 +610,9 @@ class Ticket
     /**
      * Remove collaborators
      *
-     * @param \Webkul\UserBundle\Entity\User $collaborators
+     * @param \Harryn\UserBundle\Entity\User $collaborators
      */
-    public function removeCollaborator(\Webkul\UVDesk\CoreFrameworkBundle\Entity\User $collaborators)
+    public function removeCollaborator(\Harryn\Jacobn\CoreFrameworkBundle\Entity\User $collaborators)
     {
         $this->collaborators->removeElement($collaborators);
     }
@@ -630,11 +630,11 @@ class Ticket
     /**
      * Set status
      *
-     * @param \Webkul\UVDesk\CoreFrameworkBundle\Entity\TicketStatus $status
+     * @param \Harryn\Jacobn\CoreFrameworkBundle\Entity\TicketStatus $status
      *
      * @return Ticket
      */
-    public function setStatus(\Webkul\UVDesk\CoreFrameworkBundle\Entity\TicketStatus $status = null)
+    public function setStatus(\Harryn\Jacobn\CoreFrameworkBundle\Entity\TicketStatus $status = null)
     {
         $this->status = $status;
 
@@ -644,7 +644,7 @@ class Ticket
     /**
      * Get status
      *
-     * @return \Webkul\UVDesk\CoreFrameworkBundle\Entity\TicketStatus
+     * @return \Harryn\Jacobn\CoreFrameworkBundle\Entity\TicketStatus
      */
     public function getStatus()
     {
@@ -654,11 +654,11 @@ class Ticket
     /**
      * Set priority
      *
-     * @param \Webkul\UVDesk\CoreFrameworkBundle\Entity\TicketPriority $priority
+     * @param \Harryn\Jacobn\CoreFrameworkBundle\Entity\TicketPriority $priority
      *
      * @return Ticket
      */
-    public function setPriority(\Webkul\UVDesk\CoreFrameworkBundle\Entity\TicketPriority $priority = null)
+    public function setPriority(\Harryn\Jacobn\CoreFrameworkBundle\Entity\TicketPriority $priority = null)
     {
         $this->priority = $priority;
 
@@ -668,7 +668,7 @@ class Ticket
     /**
      * Get priority
      *
-     * @return \Webkul\UVDesk\CoreFrameworkBundle\Entity\TicketPriority
+     * @return \Harryn\Jacobn\CoreFrameworkBundle\Entity\TicketPriority
      */
     public function getPriority()
     {
@@ -678,11 +678,11 @@ class Ticket
     /**
      * Set type
      *
-     * @param \Webkul\UVDesk\CoreFrameworkBundle\Entity\TicketType $type
+     * @param \Harryn\Jacobn\CoreFrameworkBundle\Entity\TicketType $type
      *
      * @return Ticket
      */
-    public function setType(\Webkul\UVDesk\CoreFrameworkBundle\Entity\TicketType $type = null)
+    public function setType(\Harryn\Jacobn\CoreFrameworkBundle\Entity\TicketType $type = null)
     {
         $this->type = $type;
 
@@ -692,7 +692,7 @@ class Ticket
     /**
      * Get type
      *
-     * @return \Webkul\UVDesk\CoreFrameworkBundle\Entity\TicketType
+     * @return \Harryn\Jacobn\CoreFrameworkBundle\Entity\TicketType
      */
     public function getType()
     {
@@ -702,11 +702,11 @@ class Ticket
     /**
      * Set customer
      *
-     * @param \Webkul\UVDesk\CoreFrameworkBundle\Entity\User $customer
+     * @param \Harryn\Jacobn\CoreFrameworkBundle\Entity\User $customer
      *
      * @return Ticket
      */
-    public function setCustomer(\Webkul\UVDesk\CoreFrameworkBundle\Entity\User $customer = null)
+    public function setCustomer(\Harryn\Jacobn\CoreFrameworkBundle\Entity\User $customer = null)
     {
         $this->customer = $customer;
 
@@ -716,7 +716,7 @@ class Ticket
     /**
      * Get customer
      *
-     * @return \Webkul\UVDesk\CoreFrameworkBundle\Entity\User
+     * @return \Harryn\Jacobn\CoreFrameworkBundle\Entity\User
      */
     public function getCustomer()
     {
@@ -726,11 +726,11 @@ class Ticket
     /**
      * Set agent
      *
-     * @param \Webkul\UVDesk\CoreFrameworkBundle\Entity\User $agent
+     * @param \Harryn\Jacobn\CoreFrameworkBundle\Entity\User $agent
      *
      * @return Ticket
      */
-    public function setAgent(\Webkul\UVDesk\CoreFrameworkBundle\Entity\User $agent = null)
+    public function setAgent(\Harryn\Jacobn\CoreFrameworkBundle\Entity\User $agent = null)
     {
         $this->agent = $agent;
 
@@ -740,7 +740,7 @@ class Ticket
     /**
      * Get agent
      *
-     * @return \Webkul\UVDesk\CoreFrameworkBundle\Entity\User
+     * @return \Harryn\Jacobn\CoreFrameworkBundle\Entity\User
      */
     public function getAgent()
     {
@@ -750,11 +750,11 @@ class Ticket
     /**
      * Set supportGroup
      *
-     * @param \Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportGroup $supportGroup
+     * @param \Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportGroup $supportGroup
      *
      * @return Ticket
      */
-    public function setSupportGroup(\Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportGroup $supportGroup = null)
+    public function setSupportGroup(\Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportGroup $supportGroup = null)
     {
         $this->supportGroup = $supportGroup;
 
@@ -764,7 +764,7 @@ class Ticket
     /**
      * Get supportGroup
      *
-     * @return \Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportGroup
+     * @return \Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportGroup
      */
     public function getSupportGroup()
     {
@@ -774,11 +774,11 @@ class Ticket
     /**
      * Set supportTeam
      *
-     * @param \Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportTeam $supportTeam
+     * @param \Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportTeam $supportTeam
      *
      * @return Ticket
      */
-    public function setSupportTeam(\Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportTeam $supportTeam = null)
+    public function setSupportTeam(\Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportTeam $supportTeam = null)
     {
         $this->supportTeam = $supportTeam;
 
@@ -788,7 +788,7 @@ class Ticket
     /**
      * Get supportTeam
      *
-     * @return \Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportTeam
+     * @return \Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportTeam
      */
     public function getSupportTeam()
     {
@@ -798,11 +798,11 @@ class Ticket
     /**
      * Add supportTag
      *
-     * @param \Webkul\UVDesk\CoreFrameworkBundle\Entity\Tag $supportTag
+     * @param \Harryn\Jacobn\CoreFrameworkBundle\Entity\Tag $supportTag
      *
      * @return Ticket
      */
-    public function addSupportTag(\Webkul\UVDesk\CoreFrameworkBundle\Entity\Tag $supportTag)
+    public function addSupportTag(\Harryn\Jacobn\CoreFrameworkBundle\Entity\Tag $supportTag)
     {
         $this->supportTags[] = $supportTag;
 
@@ -812,9 +812,9 @@ class Ticket
     /**
      * Remove supportTag
      *
-     * @param \Webkul\UVDesk\CoreFrameworkBundle\Entity\Tag $supportTag
+     * @param \Harryn\Jacobn\CoreFrameworkBundle\Entity\Tag $supportTag
      */
-    public function removeSupportTag(\Webkul\UVDesk\CoreFrameworkBundle\Entity\Tag $supportTag)
+    public function removeSupportTag(\Harryn\Jacobn\CoreFrameworkBundle\Entity\Tag $supportTag)
     {
         $this->supportTags->removeElement($supportTag);
     }
@@ -832,11 +832,11 @@ class Ticket
     /**
      * Add supportLabel
      *
-     * @param \Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportLabel $supportLabel
+     * @param \Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportLabel $supportLabel
      *
      * @return Ticket
      */
-    public function addSupportLabel(\Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportLabel $supportLabel)
+    public function addSupportLabel(\Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportLabel $supportLabel)
     {
         $this->supportLabels[] = $supportLabel;
 
@@ -846,9 +846,9 @@ class Ticket
     /**
      * Remove supportLabel
      *
-     * @param \Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportLabel $supportLabel
+     * @param \Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportLabel $supportLabel
      */
-    public function removeSupportLabel(\Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportLabel $supportLabel)
+    public function removeSupportLabel(\Harryn\Jacobn\CoreFrameworkBundle\Entity\SupportLabel $supportLabel)
     {
         $this->supportLabels->removeElement($supportLabel);
     }

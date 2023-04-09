@@ -1,6 +1,6 @@
 {
-    "name": "uvdesk/core-framework",
-    "description": "UVDesk Community Helpdesk Core Framework Bundle",
+    "name": "jacobn/core-framework",
+    "description": "jocobn Community Helpdesk Core Framework Bundle",
     "type": "symfony-bundle",
     "license": "MIT",
     "authors": [
@@ -18,14 +18,19 @@
         "knplabs/knp-paginator-bundle": "^5.4.0"
     },
     "suggest": {
-        "uvdesk/automation-bundle": "Automate operations within your UVDesk Community Helpdesk System based on pre-defined events triggered from your application",
-        "uvdesk/support-center-bundle": "Provide your customers with convenience by introducing the Support Center Portal to your UVDesk Community Helpdesk System"
+        "jacobn/automation-bundle": "Automate operations within your Jacobn Community Helpdesk System based on pre-defined events triggered from your application",
+        "jacobn/support-center-bundle": "Provide your customers with convenience by introducing the Support Center Portal to your Jacobn Community Helpdesk System"
     },
     "autoload": {
-        "psr-4": { "Webkul\\UVDesk\\CoreFrameworkBundle\\": "" }
+        "psr-4": { "Harryn\\Jacobn\\CoreFrameworkBundle\\": "" }
     },
     "extra": {
-        "uvdesk-package-extension": "Webkul\\UVDesk\\CoreFrameworkBundle\\Package\\Composer"
+        "jacobn-package-extension": "Harryn\\Jacobn\\CoreFrameworkBundle\\Package\\Composer"
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "config": {
+        "allow-plugins": {
+            "uvdesk/composer-plugin": true
+        }
+    }
 }

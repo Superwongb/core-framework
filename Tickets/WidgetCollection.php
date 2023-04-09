@@ -1,8 +1,8 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Tickets;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Tickets;
 
-use Webkul\UVDesk\CoreFrameworkBundle\Framework\ExtendableComponentInterface;
+use Harryn\Jacobn\CoreFrameworkBundle\Framework\ExtendableComponentInterface;
 
 class WidgetCollection implements ExtendableComponentInterface
 {

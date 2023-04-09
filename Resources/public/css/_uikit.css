@@ -516,7 +516,7 @@ span.uv-sorting.descend {
   top: 8px;
   right: 0px;
   cursor: pointer;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: 0px -68px;
 }
 span.uv-sorting:hover.descend {
@@ -529,7 +529,7 @@ span.uv-sorting.ascend {
   top: 8px;
   right: 0px;
   cursor: pointer;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -13px -68px;
 }
 span.uv-sorting:hover.ascend {
@@ -629,7 +629,7 @@ span.uv-sorting:hover.ascend {
 .uv-checkbox input[type="checkbox"] + .uv-checkbox-view {
   width: 20px;
   height: 20px;
-  background-image: url("./../images/uvdesk-controls.svg");
+  background-image: url("./../images/jacobn-controls.svg");
   background-position: 0px 0px;
   cursor: pointer;
   position: absolute;
@@ -637,13 +637,13 @@ span.uv-sorting:hover.ascend {
   left: 0;
 }
 .uv-checkbox input[type="checkbox"]:checked + .uv-checkbox-view {
-  background-image: url("./../images/uvdesk-controls.svg");
+  background-image: url("./../images/jacobn-controls.svg");
   background-position: 0px -21px;
 }
 .uv-checkbox input[type="checkbox"] + .uv-check-todo {
   width: 22px;
   height: 22px;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: 1px -373px;
   cursor: pointer;
   position: absolute;
@@ -651,7 +651,7 @@ span.uv-sorting:hover.ascend {
   left: 0;
 }
 .uv-checkbox input[type="checkbox"]:checked + .uv-check-todo {
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -22px -373px;
 }
 .uv-checkbox-label,
@@ -680,7 +680,7 @@ span.uv-sorting:hover.ascend {
 .uv-radio input[type="radio"] + .uv-radio-view {
   width: 20px;
   height: 20px;
-  background-image: url("./../images/uvdesk-controls.svg");
+  background-image: url("./../images/jacobn-controls.svg");
   background-position: -21px 0px;
   cursor: pointer;
   position: absolute;
@@ -688,7 +688,7 @@ span.uv-sorting:hover.ascend {
   left: 0;
 }
 .uv-radio input[type="radio"]:checked + .uv-radio-view {
-  background-image: url("./../images/uvdesk-controls.svg");
+  background-image: url("./../images/jacobn-controls.svg");
   background-position: -21px -21px;
 }
 .uv-attachment {
@@ -727,7 +727,7 @@ span.uv-sorting:hover.ascend {
   width: 8px;
   height: 8px;
   padding-right: 12px;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -64px -27px;
   display: inline-block;
   vertical-align: middle;
@@ -1005,7 +1005,7 @@ input[type="radio"][disabled="disabled"] + .uv-radio-view {
   width: 21px;
   height: 21px;
   display: inline-block;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   vertical-align: middle;
   margin-left: 10px;
   background-position: 0px -46px;
@@ -1014,7 +1014,7 @@ input[type="radio"][disabled="disabled"] + .uv-radio-view {
   width: 21px;
   height: 21px;
   display: inline-block;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   vertical-align: middle;
   margin-left: 10px;
   background-position: -22px -46px;
@@ -1207,11 +1207,11 @@ input[type="radio"][disabled="disabled"] + .uv-radio-view {
   border: none;
   width: 24px;
   height: 24px;
-  background-image: url(./../images/uvdesk-sprite-success.svg);
+  background-image: url(./../images/jacobn-sprite-success.svg);
   background-position: 0px -24px;
 }
 .uv-steppers .uv-stepper-dot:last-child .uv-stepper-dot-active {
-  background-image: url(./../images/uvdesk-sprite-success.svg);
+  background-image: url(./../images/jacobn-sprite-success.svg);
   background-position: 0px 0px;
   border: none;
   background-color: transparent;
@@ -1312,7 +1312,7 @@ input[type="radio"][disabled="disabled"] + .uv-radio-view {
   position: absolute;
   width: 8px;
   height: 8px;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -55px -27px;
   right: 10px;
   top: 10px;
@@ -1411,7 +1411,7 @@ input[type="radio"][disabled="disabled"] + .uv-radio-view {
   width: 7px;
   height: 12px;
   content: "";
-  background: url("./../images/uvdesk-sprite.svg");
+  background: url("./../images/jacobn-sprite.svg");
   background-position: -44px -62px;
   display: inline-block;
 }
@@ -1429,7 +1429,7 @@ input[type="radio"][disabled="disabled"] + .uv-radio-view {
   width: 7px;
   height: 12px;
   content: "";
-  background: url("./../images/uvdesk-sprite.svg");
+  background: url("./../images/jacobn-sprite.svg");
   background-position: -52px -62px;
   display: inline-block;
 }
@@ -1446,7 +1446,7 @@ input[type="radio"][disabled="disabled"] + .uv-radio-view {
 .uv-icon-info {
   width: 16px;
   height: 16px;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -38px -104px;
   display: inline-block;
   vertical-align: middle;
@@ -1468,7 +1468,7 @@ input[type="radio"][disabled="disabled"] + .uv-radio-view {
   margin-left: 5px;
 }
 .uv-icon-previous {
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   width: 7px;
   height: 12px;
   display: inline-block;
@@ -1478,7 +1478,7 @@ input[type="radio"][disabled="disabled"] + .uv-radio-view {
   margin-top: -2px;
 }
 .uv-icon-next {
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   width: 7px;
   height: 12px;
   display: inline-block;
@@ -2457,7 +2457,7 @@ kbd {
   color: #9E9E9E;
 }
 .uv-paper .uv-navbar .uv-profile:after {
-  /* background-image: url(./../images/uvdesk-sprite.svg); */
+  /* background-image: url(./../images/jacobn-sprite.svg); */
   background-position: -68px 0px;
   width: 6px;
   height: 24px;
@@ -2475,7 +2475,7 @@ kbd {
   width: 21px;
   height: 26px;
   display: inline-block;
-  background-image: url(./../images/uvdesk-sprite.svg);
+  background-image: url(./../images/jacobn-sprite.svg);
   background-position: -46px 0px;
   position: relative;
 }
@@ -2545,7 +2545,7 @@ kbd {
   content: "";
   left: 5px;
   top: 6px;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: 0px 0px;
 }
 .uv-paper .uv-container .uv-home-tabs ul .uv-tab-activity {
@@ -2559,7 +2559,7 @@ kbd {
   content: "";
   left: 5px;
   top: 6px;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -23px 0px;
 }
 .uv-paper .uv-container .uv-home-tabs ul .home-tab-active {
@@ -2735,7 +2735,7 @@ kbd {
   position: absolute;
   top: 5px;
   left: -12px;
-  background-image: url(./../images/uvdesk-sprite.svg);
+  background-image: url(./../images/jacobn-sprite.svg);
   background-position: -120px -27px;
 }
 .uv-inner-section .uv-aside .uv-aside-nav h6 {
@@ -2844,7 +2844,7 @@ kbd {
   width: 15px;
   height: 15px;
   position: absolute;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -44px -46px;
   top: 28px;
   right: -5px;
@@ -2863,7 +2863,7 @@ kbd {
 .uv-inner-section .uv-aside .uv-aside-brick .uv-aside-ticket-block span.uv-icon-replies {
   width: 18px;
   height: 18px;
-  background-image: url('./../images/uvdesk-sprite.svg');
+  background-image: url('./../images/jacobn-sprite.svg');
   background-position: 0px -117px;
   content: ' ';
   display: inline-block;
@@ -2874,7 +2874,7 @@ kbd {
 .uv-inner-section .uv-aside .uv-aside-brick .uv-aside-ticket-block span.uv-icon-timestamp {
   width: 18px;
   height: 18px;
-  background-image: url('./../images/uvdesk-sprite.svg');
+  background-image: url('./../images/jacobn-sprite.svg');
   background-position: -19px -117px;
   content: ' ';
   display: inline-block;
@@ -2885,7 +2885,7 @@ kbd {
 .uv-inner-section .uv-aside .uv-aside-brick .uv-aside-ticket-block span.uv-icon-channel {
   width: 18px;
   height: 18px;
-  background-image: url('./../images/uvdesk-channel-sprite.svg');
+  background-image: url('./../images/jacobn-channel-sprite.svg');
   content: ' ';
   display: inline-block;
   vertical-align: middle;
@@ -3219,7 +3219,7 @@ kbd {
   width: 12px;
   height: 18px;
   display: inline-block;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -42px -136px;
   vertical-align: middle;
   margin: 3px 5px 6px 0px;
@@ -3228,7 +3228,7 @@ kbd {
   width: 14px;
   height: 18px;
   display: inline-block;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -55px -136px;
   vertical-align: middle;
   margin: 3px 5px 6px 0px;
@@ -3237,7 +3237,7 @@ kbd {
   width: 18px;
   height: 15px;
   display: inline-block;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -38px -155px;
   vertical-align: middle;
   margin: 3px 5px 6px 0px;
@@ -3447,7 +3447,7 @@ kbd {
   margin-left: 27px;
 }
 .uv-inner-section .uv-icon-filter {
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -26px -68px;
   width: 14px;
   height: 10px;
@@ -3482,7 +3482,7 @@ kbd {
   width: 15px;
   height: 15px;
   position: absolute;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -44px -46px;
   top: 13px;
   right: 20px;
@@ -3537,7 +3537,7 @@ kbd {
   height: 18px;
   display: inline-block;
   vertical-align: middle;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: 0px -98px;
   cursor: pointer;
 }
@@ -3553,7 +3553,7 @@ kbd {
   height: 18px;
   display: inline-block;
   vertical-align: middle;
-  background-image: url("./../images/uvdesk-channel-sprite.svg");
+  background-image: url("./../images/jacobn-channel-sprite.svg");
 }
 .uv-channel-mail {
   background-position: 0px 0px;
@@ -3587,14 +3587,14 @@ kbd {
   height: 18px;
   display: inline-block;
   vertical-align: middle;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -26px -79px;
   cursor: pointer;
 }
 .uv-icon-ellipsis {
   width: 13px;
   height: 23px;
-  background-image: url(./../images/uvdesk-sprite.svg);
+  background-image: url(./../images/jacobn-sprite.svg);
   background-position: -56px -113px;
   content: ' ';
   display: inline-block;
@@ -3672,7 +3672,7 @@ kbd {
   font-weight: 700;
 }
 .uv-icon-add {
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -55px -35px;
   width: 10px;
   height: 10px;
@@ -3680,7 +3680,7 @@ kbd {
   margin-right: 5px;
 }
 .uv-icon-add-dark {
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: 0px -170px;
   width: 10px;
   height: 10px;
@@ -3688,7 +3688,7 @@ kbd {
   margin-right: 1px;
 }
 .uv-icon-remove {
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -60px -62px;
   width: 8px;
   height: 8px;
@@ -3696,7 +3696,7 @@ kbd {
   margin-left: 5px;
 }
 .uv-icon-remove-before {
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -60px -62px;
   width: 8px;
   height: 8px;
@@ -3704,7 +3704,7 @@ kbd {
   margin-right: 5px;
 }
 .uv-icon-remove-dark {
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -64px -27px;
   width: 8px;
   height: 8px;
@@ -3712,21 +3712,21 @@ kbd {
   margin-left: 5px;
 }
 .uv-todo-icon-remove {
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -32px -328px;
   width: 15px;
   height: 15px;
   display: inline-block;
 }
 .uv-todo-icon-add {
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -48px -328px;
   width: 15px;
   height: 15px;
   display: inline-block;
 }
 .uv-icon-remove-dark-before {
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -64px -27px;
   width: 8px;
   height: 8px;
@@ -3734,7 +3734,7 @@ kbd {
   margin-right: 5px;
 }
 .uv-icon-remove-dark-box {
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -64px -27px;
   width: 8px;
   height: 8px;
@@ -3742,7 +3742,7 @@ kbd {
   margin: 0px 2px;
 }
 .uv-icon-discard {
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -66px -36px;
   width: 8px;
   height: 9px;
@@ -3753,14 +3753,14 @@ kbd {
 .uv-icon-mail-light {
   width: 16px;
   height: 12px;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -57px -155px;
   display: inline-block;
 }
 .uv-icon-nav-pre {
   width: 25px;
   height: 25px;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: 1px -343px;
   display: inline-block;
   vertical-align: middle;
@@ -3769,7 +3769,7 @@ kbd {
 .uv-icon-nav-nxt {
   width: 25px;
   height: 25px;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -24px -343px;
   display: inline-block;
   vertical-align: middle;
@@ -3785,7 +3785,7 @@ kbd {
   display: inline-block;
   border: solid 1px #D3D3D3;
   border-radius: 3px;
-  background-image: url("./../images/uvdesk-layout-sprite.svg");
+  background-image: url("./../images/jacobn-layout-sprite.svg");
   background-repeat: no-repeat;
   cursor: pointer;
   transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -3809,7 +3809,7 @@ kbd {
   height: 18px;
   display: inline-block;
   vertical-align: middle;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: 0px -396px;
   transition: transform .15s;
   transform: scale(1);
@@ -3826,7 +3826,7 @@ kbd {
   display: inline-block;
   vertical-align: middle;
   background-color: #7C70F4;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: 0px -415px;
   transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 50%;
@@ -3844,7 +3844,7 @@ kbd {
   height: 20px;
   display: inline-block;
   vertical-align: middle;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: 0px -181px;
 }
 .uv-cf-textarea {
@@ -3852,7 +3852,7 @@ kbd {
   height: 20px;
   display: inline-block;
   vertical-align: middle;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -25px -181px;
 }
 .uv-cf-select {
@@ -3860,7 +3860,7 @@ kbd {
   height: 20px;
   display: inline-block;
   vertical-align: middle;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -50px -181px;
 }
 .uv-cf-radio {
@@ -3868,7 +3868,7 @@ kbd {
   height: 20px;
   display: inline-block;
   vertical-align: middle;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: 0px -202px;
 }
 .uv-cf-checkbox {
@@ -3876,7 +3876,7 @@ kbd {
   height: 20px;
   display: inline-block;
   vertical-align: middle;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -25px -202px;
 }
 .uv-cf-file {
@@ -3884,7 +3884,7 @@ kbd {
   height: 20px;
   display: inline-block;
   vertical-align: middle;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -50px -202px;
 }
 .uv-cf-date {
@@ -3892,7 +3892,7 @@ kbd {
   height: 20px;
   display: inline-block;
   vertical-align: middle;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: 0px -223px;
 }
 .uv-cf-time {
@@ -3900,7 +3900,7 @@ kbd {
   height: 20px;
   display: inline-block;
   vertical-align: middle;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -25px -223px;
 }
 .uv-cf-date-time {
@@ -3908,7 +3908,7 @@ kbd {
   height: 20px;
   display: inline-block;
   vertical-align: middle;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -50px -223px;
 }
 .uv-cf-edit {
@@ -3916,7 +3916,7 @@ kbd {
   height: 20px;
   display: inline-block;
   vertical-align: middle;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: 0px -244px;
 }
 .uv-cf-remove {
@@ -3924,7 +3924,7 @@ kbd {
   height: 20px;
   display: inline-block;
   vertical-align: middle;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -21px -244px;
 }
 .uv-cf-trash {
@@ -3932,7 +3932,7 @@ kbd {
   height: 18px;
   display: inline-block;
   vertical-align: middle;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -27px -300px;
 }
 .uv-cf-add {
@@ -3940,7 +3940,7 @@ kbd {
   height: 18px;
   display: inline-block;
   vertical-align: middle;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -46px -300px;
 }
 .uv-icon-priority-light {
@@ -3948,7 +3948,7 @@ kbd {
   height: 15px;
   display: inline-block;
   vertical-align: middle;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: 0px -265px;
 }
 .uv-icon-graph-light {
@@ -3956,7 +3956,7 @@ kbd {
   height: 15px;
   display: inline-block;
   vertical-align: middle;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -16px -265px;
 }
 .uv-icon-alert-light {
@@ -3964,7 +3964,7 @@ kbd {
   height: 15px;
   display: inline-block;
   vertical-align: middle;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -35px -265px;
 }
 .uv-icon-eye-light {
@@ -3972,7 +3972,7 @@ kbd {
   height: 15px;
   display: inline-block;
   vertical-align: middle;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -38px -281px;
 }
 .uv-icon-publish-light {
@@ -3980,13 +3980,13 @@ kbd {
   height: 15px;
   display: inline-block;
   vertical-align: middle;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -54px -281px;
 }
 .uv-icon-link {
   width: 18px;
   height: 18px;
-  background-image: url('./../images/uvdesk-sprite.svg');
+  background-image: url('./../images/jacobn-sprite.svg');
   background-position: -43px -245px;
   content: ' ';
   display: inline-block;
@@ -3997,7 +3997,7 @@ kbd {
 .uv-icon-atch-download {
   width: 15px;
   height: 15px;
-  background-image: url('./../images/uvdesk-sprite.svg');
+  background-image: url('./../images/jacobn-sprite.svg');
   background-position: 0px -328px;
   content: ' ';
   display: inline-block;
@@ -4006,7 +4006,7 @@ kbd {
 .uv-icon-atch-view {
   width: 15px;
   height: 15px;
-  background-image: url('./../images/uvdesk-sprite.svg');
+  background-image: url('./../images/jacobn-sprite.svg');
   background-position: -16px -328px;
   content: ' ';
   display: inline-block;
@@ -4015,7 +4015,7 @@ kbd {
 .uv-icon-load-more {
   width: 27px;
   height: 27px;
-  background-image: url('./../images/uvdesk-sprite.svg');
+  background-image: url('./../images/jacobn-sprite.svg');
   background-position: 0px -300px;
   content: ' ';
   display: inline-block;
@@ -4024,7 +4024,7 @@ kbd {
 .uv-icon-hint {
   width: 16px;
   height: 16px;
-  background-image: url('./../images/uvdesk-sprite.svg');
+  background-image: url('./../images/jacobn-sprite.svg');
   background-position: -52px -360px;
   content: ' ';
   display: inline-block;
@@ -4033,7 +4033,7 @@ kbd {
 .uv-icon-download-light {
   width: 15px;
   height: 15px;
-  background-image: url('./../images/uvdesk-sprite.svg');
+  background-image: url('./../images/jacobn-sprite.svg');
   background-position: -52px -344px;
   content: ' ';
   display: inline-block;
@@ -4046,7 +4046,7 @@ kbd {
   display: inline-block;
   border: solid 1px #D3D3D3;
   border-radius: 3px;
-  background-image: url("./../images/uvdesk-binaka-layout-sprite.svg");
+  background-image: url("./../images/jacobn-binaka-layout-sprite.svg");
   background-repeat: no-repeat;
   cursor: pointer;
   transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -4077,7 +4077,7 @@ kbd {
 .uv-icon-binaka {
   width: 60px;
   height: 60px;
-  background-image: url("./../images/uvdesk-binaka-icons-sprite.svg");
+  background-image: url("./../images/jacobn-binaka-icons-sprite.svg");
   display: inline-block;
   vertical-align: middle;
   background-color: #7C70F4;
@@ -4179,7 +4179,7 @@ kbd {
   display: inline-block;
   width: 20px;
   height: 15px;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -38px -88px;
   cursor: pointer;
 }
@@ -4247,7 +4247,7 @@ kbd {
   position: absolute;
   top: 5px;
   left: -12px;
-  background-image: url(./../images/uvdesk-sprite.svg);
+  background-image: url(./../images/jacobn-sprite.svg);
   background-position: -120px -27px;
 }
 .uv-filter-view .uv-filter-paper .uv-btn-tag {
@@ -4605,7 +4605,7 @@ span.uv-app-price {
 .uv-icon-popular {
   width: 13px;
   height: 18px;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: 0px -136px;
   display: inline-block;
   vertical-align: middle;
@@ -4621,7 +4621,7 @@ span.uv-app-price {
 .uv-icon-drag {
   width: 16px;
   height: 12px;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -58px -88px;
   display: inline-block;
   vertical-align: middle;
@@ -4635,7 +4635,7 @@ span.uv-app-price {
 .uv-icon-folder {
   width: 18px;
   height: 14px;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -38px -121px;
   display: inline-block;
   vertical-align: middle;
@@ -4643,7 +4643,7 @@ span.uv-app-price {
 .uv-icon-category {
   width: 18px;
   height: 18px;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -19px -281px;
   display: inline-block;
   vertical-align: middle;
@@ -4651,7 +4651,7 @@ span.uv-app-price {
 .uv-icon-article {
   width: 18px;
   height: 18px;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: 0px -281px;
   display: inline-block;
   vertical-align: middle;
@@ -4659,7 +4659,7 @@ span.uv-app-price {
 .uv-icon-expand {
   width: 6px;
   height: 8px;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -65px -71px;
   display: inline-block;
   vertical-align: middle;
@@ -4670,7 +4670,7 @@ span.uv-app-price {
 .uv-icon-alert {
   width: 18px;
   height: 15px;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: 0px -155px;
   display: inline-block;
   vertical-align: middle;
@@ -4678,7 +4678,7 @@ span.uv-app-price {
 .uv-icon-graph {
   width: 18px;
   height: 15px;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: -19px -155px;
   display: inline-block;
   vertical-align: middle;
@@ -4741,7 +4741,7 @@ span.uv-app-price {
 .uv-cld-icon-clock {
   width: 18px;
   height: 18px;
-  background-image: url("./../images/uvdesk-calendar-sprite.svg");
+  background-image: url("./../images/jacobn-calendar-sprite.svg");
   background-position: 0px 0px;
   display: inline-block;
   cursor: pointer;
@@ -4753,7 +4753,7 @@ span.uv-app-price {
 .uv-cld-icon-calendar {
   width: 18px;
   height: 18px;
-  background-image: url("./../images/uvdesk-calendar-sprite.svg");
+  background-image: url("./../images/jacobn-calendar-sprite.svg");
   background-position: -38px 0px;
   display: inline-block;
   cursor: pointer;
@@ -4765,7 +4765,7 @@ span.uv-app-price {
 .uv-cld-icon-remove {
   width: 18px;
   height: 18px;
-  background-image: url("./../images/uvdesk-calendar-sprite.svg");
+  background-image: url("./../images/jacobn-calendar-sprite.svg");
   background-position: 0px -19px;
   display: inline-block;
   cursor: pointer;
@@ -4777,7 +4777,7 @@ span.uv-app-price {
 .uv-cld-angle-up {
   width: 12px;
   height: 7px;
-  background-image: url("./../images/uvdesk-calendar-sprite.svg");
+  background-image: url("./../images/jacobn-calendar-sprite.svg");
   background-position: -38px -19px;
   display: inline-block;
   cursor: pointer;
@@ -4789,7 +4789,7 @@ span.uv-app-price {
 .uv-cld-angle-down {
   width: 12px;
   height: 7px;
-  background-image: url("./../images/uvdesk-calendar-sprite.svg");
+  background-image: url("./../images/jacobn-calendar-sprite.svg");
   background-position: -38px -27px;
   display: inline-block;
   cursor: pointer;
@@ -4801,7 +4801,7 @@ span.uv-app-price {
 .uv-cld-angle-right {
   width: 7px;
   height: 12px;
-  background-image: url("./../images/uvdesk-calendar-sprite.svg");
+  background-image: url("./../images/jacobn-calendar-sprite.svg");
   background-position: 0px -38px;
   display: inline-block;
   cursor: pointer;
@@ -4813,7 +4813,7 @@ span.uv-app-price {
 .uv-cld-angle-left {
   width: 7px;
   height: 12px;
-  background-image: url("./../images/uvdesk-calendar-sprite.svg");
+  background-image: url("./../images/jacobn-calendar-sprite.svg");
   background-position: -16px -38px;
   display: inline-block;
   cursor: pointer;
@@ -5484,7 +5484,7 @@ br[data-mce-bogus="1"] {
   display: inline-block;
   vertical-align: middle;
   background-color: #7C70F4;
-  background-image: url("./../images/uvdesk-sprite.svg");
+  background-image: url("./../images/jacobn-sprite.svg");
   background-position: 0px -415px;
   transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 50%;

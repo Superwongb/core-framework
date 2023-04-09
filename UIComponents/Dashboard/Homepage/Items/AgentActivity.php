@@ -1,9 +1,9 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\UIComponents\Dashboard\Homepage\Items;
+namespace Harryn\Jacobn\CoreFrameworkBundle\UIComponents\Dashboard\Homepage\Items;
 
-use Webkul\UVDesk\CoreFrameworkBundle\Dashboard\Segments\HomepageSectionItem;
-use Webkul\UVDesk\CoreFrameworkBundle\UIComponents\Dashboard\Homepage\Sections\Reports;
+use Harryn\Jacobn\CoreFrameworkBundle\Dashboard\Segments\HomepageSectionItem;
+use Harryn\Jacobn\CoreFrameworkBundle\UIComponents\Dashboard\Homepage\Sections\Reports;
 
 class AgentActivity extends HomepageSectionItem
 {

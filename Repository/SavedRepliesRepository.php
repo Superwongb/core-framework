@@ -1,6 +1,6 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Repository;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Repository;
 
 use Doctrine\ORM\Query;
 use Doctrine\ORM\EntityRepository;
@@ -57,7 +57,7 @@ class SavedRepliesRepository extends EntityRepository
         if(isset($queryParameters['template']))
             unset($queryParameters['template']);
 
-       $paginationData['url'] = '#'.$container->get('uvdesk.service')->buildPaginationQuery($queryParameters);
+       $paginationData['url'] = '#'.$container->get('jacobn.service')->buildPaginationQuery($queryParameters);
 
         $json['savedReplies'] = $results->getItems();
         $json['pagination_data'] = $paginationData;

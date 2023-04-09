@@ -1,13 +1,13 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Controller;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Webkul\UVDesk\CoreFrameworkBundle\SwiftMailer\Event\ConfigurationRemovedEvent;
+use Harryn\Jacobn\CoreFrameworkBundle\SwiftMailer\Event\ConfigurationRemovedEvent;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\SwiftMailer\SwiftMailer as SwiftMailerService;
+use Harryn\Jacobn\CoreFrameworkBundle\SwiftMailer\SwiftMailer as SwiftMailerService;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class SwiftMailerXHR extends AbstractController
@@ -58,7 +58,7 @@ class SwiftMailerXHR extends AbstractController
 
                 // Dispatch swiftmailer configuration removed event
                 $event = new ConfigurationRemovedEvent($swiftmailerConfiguration);
-                $container->get('uvdesk.core.event_dispatcher')->dispatch($event,ConfigurationRemovedEvent::NAME);
+                $container->get('jacobn.core.event_dispatcher')->dispatch($event,ConfigurationRemovedEvent::NAME);
 
                 // Update swiftmailer configuration file
                 $swiftmailer->writeSwiftMailerConfigurations($configurations);

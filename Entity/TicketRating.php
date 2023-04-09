@@ -1,11 +1,11 @@
 <?php
 
-namespace Webkul\UVDesk\CoreFrameworkBundle\Entity;
+namespace Harryn\Jacobn\CoreFrameworkBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * TicketRating
- * @ORM\Entity(repositoryClass="Webkul\UVDesk\CoreFrameworkBundle\Repository\TicketRatingRepository")
+ * @ORM\Entity(repositoryClass="Harryn\Jacobn\CoreFrameworkBundle\Repository\TicketRatingRepository")
  * @ORM\HasLifecycleCallbacks()
  * @ORM\Table(name="uv_ticket_rating")
  */
@@ -38,14 +38,14 @@ class TicketRating
     private $createdAt;
 
     /**
-     * @var \Webkul\UVDesk\CoreFrameworkBundle\Entity\Ticket
+     * @var \Harryn\Jacobn\CoreFrameworkBundle\Entity\Ticket
      * @ORM\ManyToOne(targetEntity="Ticket", inversedBy="ratings")
      * @ORM\JoinColumn(name="ticket_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $ticket;
 
     /**
-     * @var \Webkul\UVDesk\CoreFrameworkBundle\Entity\User
+     * @var \Harryn\Jacobn\CoreFrameworkBundle\Entity\User
      * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE")
      */
@@ -137,11 +137,11 @@ class TicketRating
     /**
      * Set ticket
      *
-     * @param \Webkul\UVDesk\CoreFrameworkBundle\Entity\Ticket $ticket
+     * @param \Harryn\Jacobn\CoreFrameworkBundle\Entity\Ticket $ticket
      *
      * @return TicketRating
      */
-    public function setTicket(\Webkul\UVDesk\CoreFrameworkBundle\Entity\Ticket $ticket = null)
+    public function setTicket(\Harryn\Jacobn\CoreFrameworkBundle\Entity\Ticket $ticket = null)
     {
         $this->ticket = $ticket;
 
@@ -151,7 +151,7 @@ class TicketRating
     /**
      * Get ticket
      *
-     * @return \Webkul\UVDesk\CoreFrameworkBundle\Entity\Ticket
+     * @return \Harryn\Jacobn\CoreFrameworkBundle\Entity\Ticket
      */
     public function getTicket()
     {
@@ -161,11 +161,11 @@ class TicketRating
     /**
      * Set customer
      *
-     * @param \Webkul\UVDesk\CoreFrameworkBundle\Entity\User $customer
+     * @param \Harryn\Jacobn\CoreFrameworkBundle\Entity\User $customer
      *
      * @return TicketRating
      */
-    public function setCustomer(\Webkul\UVDesk\CoreFrameworkBundle\Entity\User $customer = null)
+    public function setCustomer(\Harryn\Jacobn\CoreFrameworkBundle\Entity\User $customer = null)
     {
         $this->customer = $customer;
 
@@ -175,7 +175,7 @@ class TicketRating
     /**
      * Get customer
      *
-     * @return \Webkul\UVDesk\CoreFrameworkBundle\Entity\User
+     * @return \Harryn\Jacobn\CoreFrameworkBundle\Entity\User
      */
     public function getCustomer()
     {
