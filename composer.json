@@ -30,7 +30,7 @@
     "minimum-stability": "stable",
     "config": {
         "allow-plugins": {
-            "uvdesk/composer-plugin": true
+            "jacobn/composer-plugin": true
         }
     }
 }
