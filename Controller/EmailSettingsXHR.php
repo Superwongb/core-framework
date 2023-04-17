@@ -46,7 +46,7 @@ class EmailSettingsXHR extends AbstractController
         $supportEmailConfiguration = json_decode($request->getContent(), true);
         $mailer_id = ( $supportEmailConfiguration['mailer_id'] == 'None Selected' ? '~' : $supportEmailConfiguration['mailer_id'] );
 
-        $file_content_array = strtr(require __DIR__ . "/../Templates/jacobn.php", [
+        $file_content_array = strtr(require __DIR__ . "/../Templates/uvdesk.php", [
             '{{ SUPPORT_EMAIL_ID }}' => $supportEmailConfiguration['id'],
             '{{ SUPPORT_EMAIL_NAME }}' => $supportEmailConfiguration['name'],
             '{{ SUPPORT_EMAIL_MAILER_ID }}' => $mailer_id,

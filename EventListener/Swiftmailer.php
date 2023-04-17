@@ -26,7 +26,7 @@ class Swiftmailer
         $supportName = $this->container->getParameter('jacobn.support_email.name');
         
         if (!empty($supportId) && !empty($supportName)) {
-            $template = require __DIR__ . '/../Templates/jacobn.php';
+            $template = require __DIR__ . '/../Templates/uvdesk.php';
             $content = strtr($template, [
                 '{{ SITE_URL }}' => $this->container->getParameter('jacobn.site_url'),
                 '{{ SUPPORT_EMAIL_ID }}' => $supportId,
