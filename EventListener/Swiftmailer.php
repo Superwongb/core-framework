@@ -17,7 +17,7 @@ class Swiftmailer
 
     private function getPathToConfigurationFile()
     {
-        return $this->container->getParameter('kernel.project_dir') . '/config/packages/jacobn.yaml';
+        return $this->container->getParameter('kernel.project_dir') . '/config/packages/uvdesk.yaml';
     }
 
     private function updateSwiftmailerConfigurationId($swiftmailerId = null)

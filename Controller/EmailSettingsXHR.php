@@ -28,7 +28,7 @@ class EmailSettingsXHR extends AbstractController
 
     public function updateSettingsXHR(Request $request)
     {
-        $filePath = $this->kernel->getProjectDir() . '/config/packages/jacobn.yaml';
+        $filePath = $this->kernel->getProjectDir() . '/config/packages/uvdesk.yaml';
 
         $memberPrefix = $this->getParameter('uvdesk_site_path.member_prefix') ?? 'member';
         $customerPrefix = $this->getParameter('uvdesk_site_path.knowledgebase_customer_prefix') ?? 'customer';
@@ -56,7 +56,7 @@ class EmailSettingsXHR extends AbstractController
             '{{ CUSTOMER_PANEL_PREFIX }}' => $customerPrefix,
         ]);
         
-        // update jacobn.yaml file
+        // update uvdesk.yaml file
         file_put_contents($filePath, $file_content_array);
 
         $result = [

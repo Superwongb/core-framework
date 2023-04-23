@@ -332,7 +332,7 @@ class UVDeskService
      */
     public function getCurrentWebsitePrefixes()
     {
-        $filePath = $this->container->get('kernel')->getProjectDir() . '/config/packages/jacobn.yaml';
+        $filePath = $this->container->get('kernel')->getProjectDir() . '/config/packages/uvdesk.yaml';
         
         // get file content and index
         $file = file($filePath);
@@ -360,7 +360,7 @@ class UVDeskService
      */
     public function updateWebsitePrefixes($member_panel_prefix, $knowledgebase_prefix)
     {
-        $filePath = $this->container->get('kernel')->getProjectDir() . '/config/packages/jacobn.yaml';
+        $filePath = $this->container->get('kernel')->getProjectDir() . '/config/packages/uvdesk.yaml';
 
         $website_prefixes = [
             'member_prefix' => $member_panel_prefix,
